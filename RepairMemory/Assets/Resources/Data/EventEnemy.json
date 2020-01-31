@@ -1,0 +1,14 @@
+{
+    "list": [
+        {
+            "id": 1,
+            "prefabName": "enemy1",
+            "count": 1
+        },
+        {
+            "id": 2,
+            "prefabName": "enemy2",
+            "count": 2
+        }
+    ]
+}

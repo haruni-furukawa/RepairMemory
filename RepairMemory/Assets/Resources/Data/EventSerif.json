@@ -1,0 +1,16 @@
+{
+    "list": [
+        {
+            "id": 1,
+            "serifText": "test1",
+            "voiceName": "voice",
+            "imageName": "image"
+        },
+        {
+            "id": 2,
+            "serifText": "test2",
+            "voiceName": "voice",
+            "imageName": "image"
+        }
+    ]
+}
