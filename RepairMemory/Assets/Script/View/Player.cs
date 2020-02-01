@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
     private float rotateY = 0.0f;
     public Animator animator = null;
     public GameObject attack = null;
+    public GameObject attack2 = null;
+    public GameObject skill = null;
     private int hp = 10;
     private int maxHp = 10;
     private int sp = 0;
@@ -59,22 +61,58 @@ public class Player : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, rotateY, 0);
         rotateY--;
     }
+
     public void Attack()
     {
         animator.SetBool("attack", true);
     }
     public void AttackStart()
     {
-        animator.SetBool("attack", false);
     }
     public void AttackEnd()
     {
+        animator.SetBool("attack", false);
         attack.SetActive(false);
     }
-    public void Impact()
+    public void AttackImpact()
     {
         attack.SetActive(true);
     }
+
+    public void Attack2()
+    {
+        animator.SetBool("attack2", true);
+    }
+    public void Attack2Start()
+    {
+    }
+    public void Attack2End()
+    {
+        animator.SetBool("attack2", false);
+        attack2.SetActive(false);
+    }
+    public void Attack2Impact()
+    {
+        attack2.SetActive(true);
+    }
+
+    public void Skill()
+    {
+        animator.SetBool("skill", true);
+    }
+    public void SkillStart()
+    {
+    }
+    public void SkillEnd()
+    {
+        animator.SetBool("skill", false);
+        skill.SetActive(false);
+    }
+    public void SkillImpact()
+    {
+        skill.SetActive(true);
+    }
+
     public void OnTriggerEnter(Collider collision)
     {
         //Debug.Log("Player.OnTriggerEnter");

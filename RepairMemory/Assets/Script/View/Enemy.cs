@@ -37,13 +37,12 @@ public class Enemy : MonoBehaviour
 
     }
 
-    public void Damage()
+    public void Damage(int damage)
     {
-        Debug.Log("Damage");
-        hp--;
+        hp -= damage;
         var rb = gameObject.GetComponent<Rigidbody>();
         var forward = -gameObject.transform.forward.normalized * 500;
-        if (hp == 0)
+        if (hp <= 0)
         {
             forward = -gameObject.transform.forward.normalized * 5000;
             forward.y = 2000;

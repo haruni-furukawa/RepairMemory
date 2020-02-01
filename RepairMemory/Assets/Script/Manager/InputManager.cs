@@ -44,6 +44,14 @@ public class InputManager : MonoBehaviour
         {
             player.Attack();
         }
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            player.Attack2();
+        }
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            player.Skill();
+        }
         if (!bRun) 
         {
             player.idle();

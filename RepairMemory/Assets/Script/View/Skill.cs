@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Attack : MonoBehaviour
+public class Skill : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -19,9 +19,10 @@ public class Attack : MonoBehaviour
     {
         Debug.Log("OnTriggerEnter");
         var enemy = collider.gameObject.GetComponent<Enemy>();
-        if(enemy != null)
+        if (enemy != null)
         {
-            enemy.Damage(1);
+            enemy.Damage(10);
         }
     }
+
 }
