@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
+    public Player player;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,10 +18,10 @@ public class Attack : MonoBehaviour
     }
     public void OnTriggerEnter(Collider collider)
     {
-        Debug.Log("OnTriggerEnter");
         var enemy = collider.gameObject.GetComponent<Enemy>();
         if(enemy != null)
         {
+            player.IncreaseSp();
             enemy.Damage(1);
         }
     }

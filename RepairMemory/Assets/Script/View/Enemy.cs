@@ -49,7 +49,6 @@ public class Enemy : MonoBehaviour
         }
         rb.AddForce(forward);
         float perHp = (float)hp / (float)hpMax;
-        Debug.Log(perHp);
         imgHp.fillAmount = perHp;
 
     }

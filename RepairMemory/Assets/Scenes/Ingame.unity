@@ -210,7 +210,6 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 1481968653}
   - {fileID: 571965823}
   - {fileID: 1506282768}
   - {fileID: 719449898}
@@ -547,7 +546,7 @@ RectTransform:
   - {fileID: 321847071}
   - {fileID: 884008546}
   m_Father: {fileID: 7518312}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -895,7 +894,7 @@ RectTransform:
   m_Children:
   - {fileID: 1930008301}
   m_Father: {fileID: 7518312}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1704,11 +1703,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1481968652}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -13.487029, y: -2.7003913, z: -271.44962}
+  m_LocalPosition: {x: 626.7137, y: 356.1117, z: -271.7503}
   m_LocalScale: {x: 2.1910443, y: 2.1910443, z: 2.1910443}
   m_Children: []
-  m_Father: {fileID: 7518312}
-  m_RootOrder: 0
+  m_Father: {fileID: 1606242879}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1481968654
 MonoBehaviour:
@@ -1763,7 +1762,7 @@ RectTransform:
   m_Children:
   - {fileID: 1837540455}
   m_Father: {fileID: 7518312}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1839,7 +1838,7 @@ RectTransform:
   - {fileID: 801260796}
   - {fileID: 519266797}
   m_Father: {fileID: 7518312}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1994,6 +1993,7 @@ Transform:
   - {fileID: 1203523577}
   - {fileID: 873203974}
   - {fileID: 2137174295}
+  - {fileID: 1481968653}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2599,6 +2599,11 @@ PrefabInstance:
       propertyPath: attack
       value: 
       objectReference: {fileID: 5388626777417649427}
+    - target: {fileID: 5388626776487200306, guid: e6a9c9611b7ee43b08501e88412ba6c5,
+        type: 3}
+      propertyPath: uiManager
+      value: 
+      objectReference: {fileID: 1481968654}
     - target: {fileID: 5388626776487200307, guid: e6a9c9611b7ee43b08501e88412ba6c5,
         type: 3}
       propertyPath: m_LocalPosition.x
