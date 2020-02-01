@@ -129,6 +129,7 @@ MonoBehaviour:
   stand: {fileID: 7588524516894526440}
   message: {fileID: 7588524517756787925}
   _audioSource: {fileID: 1209943294224446368}
+  _animator: {fileID: 5376009760360297885}
 --- !u!82 &1209943294224446368
 AudioSource:
   m_ObjectHideFlags: 0
@@ -322,7 +323,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 7674fc911c55dbc4e905bac7f286df78, type: 3}
-    m_FontSize: 45
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2

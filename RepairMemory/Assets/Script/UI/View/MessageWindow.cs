@@ -17,11 +17,11 @@ public class MessageWindow : MonoBehaviour
     public Image stand;
     public Text message;
     public AudioSource _audioSource;
-
+    public Animator _animator;
     private MessageStateType _stateType = MessageStateType.Stay;
 
     private string currentSentence = string.Empty; // 現在の文字列
-    private float timeUntilDisplay = 0.1f; // 表示にかかる時間
+    private float timeUntilDisplay = 0.2f; // 表示にかかる時間
     private float timeCloseDisplay = 2.0f; // クローズ時間
     private float timeCount = 0.0f; // 時間計測
 
@@ -35,7 +35,6 @@ public class MessageWindow : MonoBehaviour
         if (standImageFileName.Length > 0) stand.sprite = Resources.Load<Sprite> ("Image/Character/Stand/" + standImageFileName);
         _voiceFilePath = voiceFileName.Length > 0 ? "Sound/Voice/" + voiceFileName : "";
         _stateType = MessageStateType.Initialze;
-
     }
 
     void InitialzeVariable ()
@@ -71,7 +70,7 @@ public class MessageWindow : MonoBehaviour
 
     void PlayOpen ()
     {
-        GetComponent<Animator> ().SetTrigger ("PlayOpen");
+        _animator.SetBool ("IsOpen", true);
         _stateType = MessageStateType.PlayVoice;
     }
 
@@ -107,19 +106,21 @@ public class MessageWindow : MonoBehaviour
 
     void UpdateSerif ()
     {
-        int currentDispIndex = _serifText.Length - currentSentence.Length;
+        int currentDispIndex = currentSentence.Length;
 
-        currentSentence = _serifText;
+        currentSentence += _serifText[currentDispIndex];
         message.text = currentSentence;
     }
 
     void PlayClose ()
     {
-        GetComponent<Animator> ().SetTrigger ("PlayClose");
+        _animator.SetBool ("IsOpen", false);
+        _animator.SetBool ("IsClose", true);
     }
 
     public void OnEndClose ()
     {
+        _animator.SetBool ("IsClose", false);
         _stateType = MessageStateType.Stay;
     }
 }
