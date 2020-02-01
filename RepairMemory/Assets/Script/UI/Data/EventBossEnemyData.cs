@@ -10,12 +10,4 @@ using System.Collections.Generic;
 {
     public int id;
     public string prefabName;
-    public int GetId ()
-    {
-        return id;
-    }
-    public string GetPrefabName ()
-    {
-        return prefabName;
-    }
 }

@@ -15,23 +15,9 @@ using UnityEngine;
     public EventType type;
     public int eventId;
 
-    public int GetId ()
-    {
-        return id;
-    }
     public Vector3 GetPosition ()
     {
         return new Vector3 (x, 0.0f, z);
-    }
-
-    public EventType GetEventType ()
-    {
-        return type;
-    }
-
-    public int GetEventId ()
-    {
-        return eventId;
     }
 }
 

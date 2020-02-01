@@ -12,20 +12,4 @@ using System.Collections.Generic;
     public string serifText;
     public string voiceName;
     public string imageName;
-    public int GetId ()
-    {
-        return id;
-    }
-    public string GetSerifText ()
-    {
-        return serifText;
-    }
-    public string GetVoiceName ()
-    {
-        return voiceName;
-    }
-    public string GetImageName ()
-    {
-        return imageName;
-    }
 }

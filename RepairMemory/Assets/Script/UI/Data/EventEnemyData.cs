@@ -11,16 +11,8 @@ using System.Collections.Generic;
     public int id;
     public string prefabName;
     public int count;
-    public int GetId ()
-    {
-        return id;
-    }
     public string GetprefabName ()
     {
         return prefabName;
-    }
-    public int GetCount ()
-    {
-        return count;
     }
 }

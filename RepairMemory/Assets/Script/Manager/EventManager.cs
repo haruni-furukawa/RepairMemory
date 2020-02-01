@@ -67,7 +67,10 @@ public class EventManager : MonoBehaviour
         {
             if (model.id == id)
             {
-                queueFunc.Add (() => { });
+                queueFunc.Add (() =>
+                {
+                    uiManager.ShowMessageWindow (model.serifText, model.imageName, model.voiceName);
+                });
                 break;
             }
         }

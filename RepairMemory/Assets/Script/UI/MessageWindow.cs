@@ -22,20 +22,20 @@ public class MessageWindow : MonoBehaviour
 
     private string currentSentence = string.Empty; // 現在の文字列
     private float timeUntilDisplay = 0.1f; // 表示にかかる時間
+    private float timeCloseDisplay = 2.0f; // クローズ時間
     private float timeCount = 0.0f; // 時間計測
 
     private string _serifText = "";
-    private string _standImagePath = "";
     private string _voiceFilePath = "";
 
-    void ShowMessageWindow (string text, string standImagePath, string voiceFilePath)
+    public void ShowMessageWindow (string text, string standImageFileName, string voiceFileName)
     {
         _serifText = text;
-        _standImagePath = standImagePath;
-        // stand 
-        // TODO 画像のロード
-        _voiceFilePath = voiceFilePath;
+        stand.sprite = null;
+        if (standImageFileName.Length > 0) stand.sprite = Resources.Load<Sprite> ("Image/Character/Stand/" + standImageFileName);
+        _voiceFilePath = voiceFileName.Length > 0 ? "Sound/Voice/" + voiceFileName : "";
         _stateType = MessageStateType.Initialze;
+
     }
 
     void InitialzeVariable ()
@@ -71,7 +71,7 @@ public class MessageWindow : MonoBehaviour
 
     void PlayOpen ()
     {
-        // TODO コールバック
+        GetComponent<Animator> ().SetTrigger ("PlayOpen");
         _stateType = MessageStateType.PlayVoice;
     }
 
@@ -86,13 +86,17 @@ public class MessageWindow : MonoBehaviour
     }
     void PlaySerif ()
     {
+        timeCount += Time.deltaTime;
         if (currentSentence.Length == _serifText.Length)
         {
-            _stateType = MessageStateType.CloseAnimation;
+            if (timeCount >= timeCloseDisplay)
+            {
+                _stateType = MessageStateType.CloseAnimation;
+                timeCount = 0;
+            }
         }
         else
         {
-            timeCount += Time.deltaTime;
             if (timeCount >= timeUntilDisplay)
             {
                 UpdateSerif ();
@@ -103,13 +107,19 @@ public class MessageWindow : MonoBehaviour
 
     void UpdateSerif ()
     {
+        int currentDispIndex = _serifText.Length - currentSentence.Length;
+
         currentSentence = _serifText;
         message.text = currentSentence;
     }
 
     void PlayClose ()
     {
-        // TODO コールバック
+        GetComponent<Animator> ().SetTrigger ("PlayClose");
+    }
+
+    public void OnEndClose ()
+    {
         _stateType = MessageStateType.Stay;
     }
 }

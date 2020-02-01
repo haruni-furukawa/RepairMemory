@@ -12,7 +12,11 @@ public class UIManager : MonoBehaviour
     public Text banishCount;
     public MessageWindow messageWindow;
     public static UIManager Instance { get; private set; }
-    // public 
+
+    public void ShowMessageWindow (string text, string standImageFileName, string voiceFileName)
+    {
+        messageWindow.ShowMessageWindow (text, standImageFileName, voiceFileName);
+    }
     private void Awake ()
     {
         if (Instance == null)
@@ -66,7 +70,7 @@ public class UIManager : MonoBehaviour
         return value;
     }
 
-    public void SetKillCount (int count)
+    public void SetBanishCount (int count)
     {
         if (banishCount != null)
         {

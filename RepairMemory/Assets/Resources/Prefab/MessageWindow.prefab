@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 362, y: -132}
+  m_AnchoredPosition: {x: 384, y: -132}
   m_SizeDelta: {x: 140, y: 97}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7588524516894526441
@@ -59,11 +59,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 42c9c8ecb0c55a843a62c09e5d704e12, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d43c276f378404145a1172f60b204d5f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -84,6 +84,8 @@ GameObject:
   - component: {fileID: 7588524516967703439}
   - component: {fileID: 7588524516967703436}
   - component: {fileID: 1209943294224446368}
+  - component: {fileID: 5376009760360297885}
+  - component: {fileID: 1201606715002072108}
   m_Layer: 5
   m_Name: MessageWindow
   m_TagString: Untagged
@@ -126,7 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stand: {fileID: 7588524516894526440}
   message: {fileID: 7588524517756787925}
-  _audioSource: {fileID: 0}
+  _audioSource: {fileID: 1209943294224446368}
 --- !u!82 &1209943294224446368
 AudioSource:
   m_ObjectHideFlags: 0
@@ -223,6 +225,37 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &5376009760360297885
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7588524516967703438}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9c5f457e4eb5031459bc2029071b6595, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!225 &1201606715002072108
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7588524516967703438}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &7588524517756787927
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,7 +316,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -300,7 +333,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "...\u3063\u304F\uFF01\n\u304D\u308A\u304C\u306A\u3044\uFF01"
+  m_Text: "\u30E1\u30C3\u30BB\u30FC\u30B8\u521D\u671F\u5316\u4E2D\u3067\u3059"
 --- !u!114 &2264921724288112922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -376,7 +409,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
