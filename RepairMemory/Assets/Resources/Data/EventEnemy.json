@@ -1,24 +1,24 @@
 {
-    "list": [
-        {
-            "id": 1,
-            "prefabName": "enemy1",
-            "count": 5
-        },
-        {
-            "id": 2,
-            "prefabName": "enemy2",
-            "count": 5
-        },
-        {
-            "id": 3,
-            "prefabName": "enemy3",
-            "count": 5
-        },
-        {
-            "id": 4,
-            "prefabName": "enemy4",
-            "count": 5
-        }
-    ]
+  "list": [
+    {
+      "id": 1,
+      "prefabName": "enemy1",
+      "count": 5
+    },
+    {
+      "id": 2,
+      "prefabName": "enemy2",
+      "count": 5
+    },
+    {
+      "id": 3,
+      "prefabName": "enemy3",
+      "count": 5
+    },
+    {
+      "id": 4,
+      "prefabName": "enemy4",
+      "count": 5
+    }
+  ]
 }
