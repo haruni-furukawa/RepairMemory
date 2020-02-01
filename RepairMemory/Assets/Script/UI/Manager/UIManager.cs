@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -14,7 +15,19 @@ public class UIManager : MonoBehaviour
     public MessageWindow messageWindow;
     public static UIManager Instance { get; private set; }
 
+    public ClearAnimation clearAnimation;
+    public GameOverAnimation gameOverAnimation;
+
     private BossHpBar bossHpBar;
+    public void ShowClear (UnityAction callback)
+    {
+        clearAnimation.Play (callback);
+    }
+
+    public void ShowGameOver (UnityAction callback)
+    {
+        gameOverAnimation.Play (callback);
+    }
 
     public void ShowBossHpBar ()
     {
