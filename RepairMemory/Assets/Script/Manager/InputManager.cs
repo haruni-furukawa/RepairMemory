@@ -8,24 +8,30 @@ public class InputManager : MonoBehaviour
 
     void Update()
     {
+        bool bRun = false;
         if (Input.GetKey(KeyCode.W))
         {
             player.runUp();
+            bRun = true;
         }
         if (Input.GetKey(KeyCode.S))
         {
             player.runDown();
+            bRun = true;
         }
 
         if (Input.GetKey(KeyCode.D))
         {
             player.runRight();
+            bRun = true;
         }
 
         if (Input.GetKey(KeyCode.A))
         {
             player.runLeft();
+            bRun = true;
         }
+
         if (Input.GetKey(KeyCode.E))
         {
             player.turnRight();
@@ -33,6 +39,15 @@ public class InputManager : MonoBehaviour
         if (Input.GetKey(KeyCode.Q))
         {
             player.turnLeft();
+        }
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            player.attack();
+        }
+        if (!bRun) 
+        {
+            player.idle();
+        
         }
 
     }

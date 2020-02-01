@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     private float speed = 5.0f;
     private float rotateY = 0.0f;
+    public Animator animator = null;
 
     // Start is called before the first frame update
     void Start()
@@ -20,20 +21,27 @@ public class Player : MonoBehaviour
 
     public void runUp()
     {
-        Debug.Log("runUp");
         transform.position += transform.forward * speed * Time.deltaTime;
+        animator.SetBool("run", true);
     }
     public void runDown()
     {
         transform.position -= transform.forward * speed * Time.deltaTime;
+        animator.SetBool("run", true);
     }
     public void runRight()
     {
         transform.position += transform.right * speed * Time.deltaTime;
+        animator.SetBool("run", true);
     }
     public void runLeft()
     {
         transform.position -= transform.right * speed * Time.deltaTime;
+        animator.SetBool("run", true);
+    }
+    public void idle()
+    {
+        animator.SetBool("run", false);
     }
 
     public void turnRight()
@@ -45,6 +53,14 @@ public class Player : MonoBehaviour
     {
         transform.rotation = Quaternion.Euler(0, rotateY, 0);
         rotateY--;
+    }
+    public void attack()
+    {
+        animator.SetBool("attack", true);
+    }
+    public void AttackStart()
+    {
+        animator.SetBool("attack", false);
     }
 
 
