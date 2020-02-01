@@ -22,6 +22,7 @@ public class IngameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start ()
     {
+        // SoundManager.Instance.PlayNormalBattleBgm ();
         //CreateEnemies ("Enemy1", 10, 0, 0);
         //CreateEnemies("Enemy2", 10, 0, 0);
         //CreateEnemies("Enemy3", 5, 10, 10);
