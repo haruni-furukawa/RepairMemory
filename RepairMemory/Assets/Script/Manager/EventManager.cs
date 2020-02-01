@@ -52,7 +52,7 @@ public class EventManager : MonoBehaviour
                             AddEnemyFunc (model.eventId, model.GetPosition ().x, model.GetPosition ().z);
                             break;
                         case EventType.BossEnemy:
-                            AddBossEnemyFunc (model.eventId);
+                            AddBossEnemyFunc (model.eventId, model.GetPosition ().x, model.GetPosition ().z);
                             break;
                     }
                     playData.eventFlg[model.id] = true;
@@ -91,7 +91,7 @@ public class EventManager : MonoBehaviour
         }
     }
 
-    void AddBossEnemyFunc (int id)
+    void AddBossEnemyFunc (int id, float x, float z)
     {
         foreach (EventBossEnemyModel model in GameDataManager.eventBossEnemyData.list)
         {
@@ -99,7 +99,8 @@ public class EventManager : MonoBehaviour
             {
                 queueFunc.Add (() =>
                 {
-                    SoundManager.Instance.PlayBossBattleBgm ();
+                    // SoundManager.Instance.PlayBossBattleBgm ();
+                    ingameManager.CreateEnemies (model.prefabName, 0, x, z);
                 });
                 break;
             }

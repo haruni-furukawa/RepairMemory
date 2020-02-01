@@ -2,15 +2,21 @@
     "list": [
         {
             "id": 1,
-            "serifText": "test1",
-            "voiceName": "voice",
-            "imageName": "image"
+            "serifText": "１番目です。",
+            "voiceName": "",
+            "imageName": "001"
         },
         {
             "id": 2,
-            "serifText": "test2",
-            "voiceName": "voice",
-            "imageName": "image"
+            "serifText": "２番目です。",
+            "voiceName": "",
+            "imageName": "001"
+        },
+        {
+            "id": 3,
+            "serifText": "３番目です。",
+            "voiceName": "",
+            "imageName": "001"
         }
     ]
 }

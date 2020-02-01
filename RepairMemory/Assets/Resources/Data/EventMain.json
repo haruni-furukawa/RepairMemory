@@ -4,21 +4,21 @@
             "id": 1,
             "x": 0,
             "z": 10,
-            "type": 10,
+            "type": 0,
             "eventId": 1
         },
         {
             "id": 2,
             "x": 0,
             "z": -10,
-            "type": 10,
+            "type": 0,
             "eventId": 2
         },
         {
             "id": 3,
             "x": 0,
             "z": -20,
-            "type": 10,
+            "type": 0,
             "eventId": 3
         }
     ]

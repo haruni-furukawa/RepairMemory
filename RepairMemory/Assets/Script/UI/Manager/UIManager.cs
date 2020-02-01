@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-
     public List<GameObject> memoryParts = new List<GameObject> ();
+    public GameObject bossHpBarPrefab;
     public Image hpBar;
     public Image spBar;
     public Text banishCount;
