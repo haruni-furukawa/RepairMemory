@@ -73,7 +73,7 @@ public class Player : MonoBehaviour
     }
     public void OnTriggerEnter(Collider collision)
     {
-        Debug.Log("Player.OnTriggerEnter");
+        //Debug.Log("Player.OnTriggerEnter");
     }
 
 
