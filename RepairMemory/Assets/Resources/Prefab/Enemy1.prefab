@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3781304010422396255}
   - component: {fileID: 2795446624280201304}
   - component: {fileID: 3446493297571264924}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3582508703670755857}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HPGauge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 8229595691220982423}
   - component: {fileID: 1192057779596818242}
   - component: {fileID: 4745353586684399679}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -215,7 +215,7 @@ GameObject:
   - component: {fileID: 7694475065545696152}
   - component: {fileID: 8124934991960070421}
   - component: {fileID: 8838627848333663900}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HpBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -289,7 +289,7 @@ GameObject:
   - component: {fileID: 2507664281589871139}
   - component: {fileID: 4272810570884604349}
   - component: {fileID: 8328548171385734201}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -365,6 +365,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: enemy1
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 715f4ed468e564e7a9fc4df20a217b55,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2534866581884222612, guid: 715f4ed468e564e7a9fc4df20a217b55,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 715f4ed468e564e7a9fc4df20a217b55,
         type: 3}
