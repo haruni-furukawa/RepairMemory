@@ -1,11 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
 
-    public Player player;
+    private Player player;
+    private int hpMax = 3;
+    private int hp = 3;
+    public Image imgHp;
 
     public void SetPlayer(Player player)
     {
@@ -27,9 +29,29 @@ public class Enemy : MonoBehaviour
             targetPos.y = transform.position.y;
             transform.LookAt(targetPos);
         }
+        //float perHp = (float)hp / (float)hpMax;
+        //imgHp.fillAmount = perHp;
         //var rb = gameObject.GetComponent<Rigidbody>();
         //Vector3 force = new Vector3(0.0f, 0.0f, 20.0f);
         //rb.AddForce(force);
+
+    }
+
+    public void Damage()
+    {
+        Debug.Log("Damage");
+        hp--;
+        var rb = gameObject.GetComponent<Rigidbody>();
+        var forward = -gameObject.transform.forward.normalized * 500;
+        if (hp == 0)
+        {
+            forward = -gameObject.transform.forward.normalized * 5000;
+            forward.y = 2000;
+        }
+        rb.AddForce(forward);
+        float perHp = (float)hp / (float)hpMax;
+        Debug.Log(perHp);
+        imgHp.fillAmount = perHp;
 
     }
 }

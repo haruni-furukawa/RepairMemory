@@ -8,6 +8,10 @@ public class Player : MonoBehaviour
     private float rotateY = 0.0f;
     public Animator animator = null;
     public GameObject attack = null;
+    private int hp = 10;
+    private int maxHp = 10;
+    private int sp = 0;
+    private int maxSp = 10;
 
     // Start is called before the first frame update
     void Start()
