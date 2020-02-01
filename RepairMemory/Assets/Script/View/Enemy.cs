@@ -4,12 +4,12 @@ using UnityEngine.UI;
 public class Enemy : MonoBehaviour
 {
 
-    private Player player;
-    private int hpMax = 3;
-    private int hp = 3;
+    protected Player player;
+    protected int hpMax = 3;
+    protected int hp = 3;
     public Image imgHp;
-    private float nextTime = 0.0f;
-    private float totalTime = 0.0f;
+    protected float nextTime = 0.0f;
+    protected float totalTime = 0.0f;
 
     public void SetPlayer(Player player)
     {
@@ -38,15 +38,9 @@ public class Enemy : MonoBehaviour
             targetPos.y = transform.position.y;
             transform.LookAt(targetPos);
         }
-        //float perHp = (float)hp / (float)hpMax;
-        //imgHp.fillAmount = perHp;
-        //var rb = gameObject.GetComponent<Rigidbody>();
-        //Vector3 force = new Vector3(0.0f, 0.0f, 20.0f);
-        //rb.AddForce(force);
-
     }
 
-    public void Damage(int damage)
+    public virtual void Damage(int damage)
     {
         if(hp <= 0)
         {

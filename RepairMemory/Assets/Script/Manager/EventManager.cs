@@ -100,7 +100,7 @@ public class EventManager : MonoBehaviour
                 queueFunc.Add (() =>
                 {
                     // SoundManager.Instance.PlayBossBattleBgm ();
-                    ingameManager.CreateEnemies (model.prefabName, 0, x, z);
+                    ingameManager.CreateBoss (model.prefabName, 1, x, z);
                 });
                 break;
             }
