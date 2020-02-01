@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3267995818021648088}
   - component: {fileID: 3267995818021648089}
-  m_Layer: 0
+  - component: {fileID: 1508560629455129512}
+  m_Layer: 8
   m_Name: Enemy1Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,6 +45,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a917d6c29a7d4115b4a1e8e8f0bce4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &1508560629455129512
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3267995818021648091}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.31325752, y: 3.1578398, z: 0.33692932}
+  m_Center: {x: -0.000000029802322, y: 1.0789199, z: 0.028663635}
 --- !u!1001 &1938176771279407674
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -55,13 +69,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Eff_Aura_1_loop
       objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: d6ebb0ab3f51846fdbe1ebd88c5a39e0, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: d6ebb0ab3f51846fdbe1ebd88c5a39e0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: d6ebb0ab3f51846fdbe1ebd88c5a39e0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: d6ebb0ab3f51846fdbe1ebd88c5a39e0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -98,6 +116,18 @@ PrefabInstance:
     - target: {fileID: 400004, guid: d6ebb0ab3f51846fdbe1ebd88c5a39e0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: d6ebb0ab3f51846fdbe1ebd88c5a39e0, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: d6ebb0ab3f51846fdbe1ebd88c5a39e0, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: d6ebb0ab3f51846fdbe1ebd88c5a39e0, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6ebb0ab3f51846fdbe1ebd88c5a39e0, type: 3}

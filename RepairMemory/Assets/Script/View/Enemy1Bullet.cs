@@ -23,4 +23,15 @@ public class Enemy1Bullet : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+    public void OnTriggerEnter(Collider collider)
+    {
+        Debug.Log("OnTriggerEnter");
+        var player = collider.gameObject.GetComponent<Player>();
+        if (player != null)
+        {
+            player.Damage(1);
+        }
+
+    }
+
 }

@@ -39,21 +39,37 @@ public class Player : MonoBehaviour
     }
     public void runUp()
     {
+        if(hp <= 0)
+        {
+            return;
+        }
         transform.position += transform.forward * speed * Time.deltaTime;
         animator.SetBool("run", true);
     }
     public void runDown()
     {
+        if (hp <= 0)
+        {
+            return;
+        }
         transform.position -= transform.forward * speed * Time.deltaTime;
         animator.SetBool("run", true);
     }
     public void runRight()
     {
+        if (hp <= 0)
+        {
+            return;
+        }
         transform.position += transform.right * speed * Time.deltaTime;
         animator.SetBool("run", true);
     }
     public void runLeft()
     {
+        if (hp <= 0)
+        {
+            return;
+        }
         transform.position -= transform.right * speed * Time.deltaTime;
         animator.SetBool("run", true);
     }
@@ -64,11 +80,19 @@ public class Player : MonoBehaviour
 
     public void turnRight()
     {
+        if (hp <= 0)
+        {
+            return;
+        }
         transform.rotation = Quaternion.Euler(0, rotateY, 0);
         rotateY++;
     }
     public void turnLeft()
     {
+        if (hp <= 0)
+        {
+            return;
+        }
         transform.rotation = Quaternion.Euler(0, rotateY, 0);
         rotateY--;
     }
@@ -132,19 +156,22 @@ public class Player : MonoBehaviour
         banishCount++;
         uiManager.SetBanishCount(banishCount);
     }
-
+    public void Damage(int damage)
+    {
+        animator.SetBool("damage", true);
+        hp -= damage;
+        if(hp <= 0)
+        {
+            animator.SetBool("death", true);
+            uiManager.ShowGameOver(() => { });
+        }
+    }
+    public void DamageEnd(int damage)
+    {
+        animator.SetBool("damage", false);
+    }
     public void OnTriggerEnter(Collider collision)
     {
         //Debug.Log("Player.OnTriggerEnter");
     }
-
-
-    //if (bKey)
-    //{
-    //    this.animator.SetBool(isRunning, true);
-    //}
-    //else
-    //{
-    //    this.animator.SetBool(isRunning, false);
-    //}
 }
