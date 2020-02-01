@@ -7,11 +7,11 @@ public class Enemy : MonoBehaviour
 
     public Player player;
 
-    public Enemy(Player player)
+    public void SetPlayer(Player player)
     {
         this.player = player;
+        Debug.Log(player);
     }
-
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +22,10 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         // 常にプレイヤーを見る
-        transform.LookAt(player.transform);
+        if (player != null)
+        {
+            transform.LookAt(player.transform);
+            Debug.Log(player);
+        }
     }
 }

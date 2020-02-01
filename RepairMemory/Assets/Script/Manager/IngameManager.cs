@@ -4,18 +4,25 @@ using UnityEngine;
 
 public class IngameManager : MonoBehaviour
 {
-    public void CreateEnemies(string prefabName, int count, float x, float y)
-    {
-        var prefab = (GameObject)Resources.Load("Prefabs/" + prefabName);
-        var objEnemy = Instantiate(prefab, new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity);
+    public Player player;
 
-        //cardView = objCard.GetComponent(typeof(FollowerCardView)) as FollowerCardView;
-        //Instantiate(p)
+    public void CreateEnemies(string prefabName, int count, float x, float z)
+    {
+        for (var i = 0; i < count; i++)
+        {
+            var prefab = (GameObject)Resources.Load("Prefab/" + prefabName);
+            var newX = x + Random.Range(-10f, 10f);
+            var newZ = z + Random.Range(-10f, 10f);
+            var objEnemy = Instantiate(prefab, new Vector3(newX, 0.0f, newZ), Quaternion.identity);
+            var enemy = objEnemy.GetComponent<Enemy>();
+            enemy.SetPlayer(player);
+        }
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        CreateEnemies("Enemy1", 20, 0, 0);
     }
 
     // Update is called once per frame
