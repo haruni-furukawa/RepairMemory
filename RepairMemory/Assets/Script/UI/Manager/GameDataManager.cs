@@ -40,6 +40,6 @@ public class GameDataManager : MonoBehaviour
     private void Start ()
     {
         InitializeGameDataManager ();
-        SceneManager.LoadScene ("UITest");
+        SceneManager.LoadScene ("Title");
     }
 }

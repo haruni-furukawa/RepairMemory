@@ -7,9 +7,10 @@ public class UIManager : MonoBehaviour
 {
 
     public List<GameObject> memoryParts = new List<GameObject> ();
-    public Slider hpBar;
-    public Slider spBar;
-    public Text killCount;
+    public Image hpBar;
+    public Image spBar;
+    public Text banishCount;
+    public MessageWindow messageWindow;
     public static UIManager Instance { get; private set; }
     // public 
     private void Awake ()
@@ -39,7 +40,7 @@ public class UIManager : MonoBehaviour
         hp = CheckSliderValue (hp);
         if (hpBar != null)
         {
-            hpBar.value = hp;
+            hpBar.fillAmount = hp;
         }
     }
 
@@ -48,7 +49,7 @@ public class UIManager : MonoBehaviour
         sp = CheckSliderValue (sp);
         if (spBar != null)
         {
-            spBar.value = sp;
+            spBar.fillAmount = sp;
         }
     }
 
@@ -67,9 +68,9 @@ public class UIManager : MonoBehaviour
 
     public void SetKillCount (int count)
     {
-        if (killCount != null)
+        if (banishCount != null)
         {
-            killCount.text = count.ToString ();
+            banishCount.text = count.ToString ();
         }
     }
 }

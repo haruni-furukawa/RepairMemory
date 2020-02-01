@@ -32,6 +32,8 @@ public class MessageWindow : MonoBehaviour
     {
         _serifText = text;
         _standImagePath = standImagePath;
+        // stand 
+        // TODO 画像のロード
         _voiceFilePath = voiceFilePath;
         _stateType = MessageStateType.Initialze;
     }
@@ -41,13 +43,7 @@ public class MessageWindow : MonoBehaviour
         currentSentence = string.Empty;
         _stateType = MessageStateType.OpenAnimation;
     }
-    // Start is called before the first frame update
-    void Start ()
-    {
 
-    }
-
-    // Update is called once per frame
     void Update ()
     {
         switch (_stateType)
@@ -107,12 +103,13 @@ public class MessageWindow : MonoBehaviour
 
     void UpdateSerif ()
     {
-
+        currentSentence = _serifText;
+        message.text = currentSentence;
     }
 
     void PlayClose ()
     {
         // TODO コールバック
-        _stateType = MessageStateType.SerifAnimation;
+        _stateType = MessageStateType.Stay;
     }
 }
