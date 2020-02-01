@@ -10,7 +10,6 @@ public class Enemy : MonoBehaviour
     public void SetPlayer(Player player)
     {
         this.player = player;
-        Debug.Log(player);
     }
     // Start is called before the first frame update
     void Start()
@@ -24,8 +23,13 @@ public class Enemy : MonoBehaviour
         // 常にプレイヤーを見る
         if (player != null)
         {
-            transform.LookAt(player.transform);
-            Debug.Log(player);
+            var targetPos = player.transform.position;
+            targetPos.y = transform.position.y;
+            transform.LookAt(targetPos);
         }
+        //var rb = gameObject.GetComponent<Rigidbody>();
+        //Vector3 force = new Vector3(0.0f, 0.0f, 20.0f);
+        //rb.AddForce(force);
+
     }
 }

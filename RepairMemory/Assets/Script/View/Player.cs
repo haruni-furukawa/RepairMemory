@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     private float speed = 5.0f;
     private float rotateY = 0.0f;
     public Animator animator = null;
+    public GameObject attack = null;
 
     // Start is called before the first frame update
     void Start()
@@ -54,13 +55,25 @@ public class Player : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, rotateY, 0);
         rotateY--;
     }
-    public void attack()
+    public void Attack()
     {
         animator.SetBool("attack", true);
     }
     public void AttackStart()
     {
         animator.SetBool("attack", false);
+    }
+    public void AttackEnd()
+    {
+        attack.SetActive(false);
+    }
+    public void Impact()
+    {
+        attack.SetActive(true);
+    }
+    public void OnTriggerEnter(Collider collision)
+    {
+        Debug.Log("Player.OnTriggerEnter");
     }
 
 

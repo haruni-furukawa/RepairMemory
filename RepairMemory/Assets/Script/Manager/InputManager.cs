@@ -42,7 +42,7 @@ public class InputManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.J))
         {
-            player.attack();
+            player.Attack();
         }
         if (!bRun) 
         {
