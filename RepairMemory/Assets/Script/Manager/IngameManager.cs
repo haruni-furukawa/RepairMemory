@@ -22,9 +22,9 @@ public class IngameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start ()
     {
-        CreateEnemies ("Enemy1", 10, 0, 0);
-        CreateEnemies("Enemy2", 10, 0, 0);
-        CreateEnemies("Enemy3", 5, 10, 10);
+        //CreateEnemies ("Enemy1", 10, 0, 0);
+        //CreateEnemies("Enemy2", 10, 0, 0);
+        //CreateEnemies("Enemy3", 5, 10, 10);
     }
 
     // Update is called once per frame
