@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraManager : MonoBehaviour
 {
+    public Player player;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +14,9 @@ public class CameraManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        transform.localEulerAngles = player.transform.localEulerAngles;
+        Vector3 newPosition = player.transform.position - transform.forward.normalized * 5;
+        newPosition.y += 3;
+        transform.position = newPosition;
     }
 }
