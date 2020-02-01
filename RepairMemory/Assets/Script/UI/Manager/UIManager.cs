@@ -19,14 +19,14 @@ public class UIManager : MonoBehaviour
     public GameOverAnimation gameOverAnimation;
 
     private BossHpBar bossHpBar;
-    public void ShowClear (UnityAction callback)
+    public void ShowClear ()
     {
-        clearAnimation.Play (callback);
+        clearAnimation.Play ();
     }
 
-    public void ShowGameOver (UnityAction callback)
+    public void ShowGameOver ()
     {
-        gameOverAnimation.Play (callback);
+        gameOverAnimation.Play ();
     }
 
     public void ShowBossHpBar ()
