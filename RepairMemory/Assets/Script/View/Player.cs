@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     private int hpMax = 10;
     private int sp = 0;
     private int spMax = 10;
+    private int banishCount = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -125,6 +126,11 @@ public class Player : MonoBehaviour
     public void SkillImpact()
     {
         skill.SetActive(true);
+    }
+    public void Defeat()
+    {
+        banishCount++;
+        uiManager.SetBanishCount(banishCount);
     }
 
     public void OnTriggerEnter(Collider collision)

@@ -39,6 +39,11 @@ public class Enemy : MonoBehaviour
 
     public void Damage(int damage)
     {
+        if(hp <= 0)
+        {
+            return;
+        }
+
         hp -= damage;
         var rb = gameObject.GetComponent<Rigidbody>();
         var forward = -gameObject.transform.forward.normalized * 500;
@@ -46,6 +51,7 @@ public class Enemy : MonoBehaviour
         {
             forward = -gameObject.transform.forward.normalized * 5000;
             forward.y = 2000;
+            player.Defeat();
         }
         rb.AddForce(forward);
         float perHp = (float)hp / (float)hpMax;
