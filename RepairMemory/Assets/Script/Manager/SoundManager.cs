@@ -19,6 +19,15 @@ public class SoundManager : MonoBehaviour
             return;
         }
     }
+
+    public void StopAllBgm ()
+    {
+        foreach (AudioSource audioSource in bgmList)
+        {
+            audioSource.Stop ();
+        }
+    }
+
     // TODO フェード
     public void PlayNormalBattleBgm ()
     {

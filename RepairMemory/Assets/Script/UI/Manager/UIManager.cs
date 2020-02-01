@@ -6,12 +6,36 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     public List<GameObject> memoryParts = new List<GameObject> ();
+    public GameObject bossHpBarPos;
     public GameObject bossHpBarPrefab;
     public Image hpBar;
     public Image spBar;
     public Text banishCount;
     public MessageWindow messageWindow;
     public static UIManager Instance { get; private set; }
+
+    private BossHpBar bossHpBar;
+
+    public void ShowBossHpBar ()
+    {
+        GameObject bossHpBarObj = Instantiate (bossHpBarPrefab, bossHpBarPos.transform);
+        bossHpBar = bossHpBarObj.GetComponent<BossHpBar> ();
+    }
+
+    public void SetBossHpBar (float hp)
+    {
+        if (bossHpBar != null)
+        {
+            hp = CheckSliderValue (hp);
+            bossHpBar.SetHpBar (hp);
+        }
+    }
+
+    public void HideBossHpBar ()
+    {
+        Destroy (bossHpBar.gameObject);
+        bossHpBar = null;
+    }
 
     public void ShowMessageWindow (string text, string standImageFileName, string voiceFileName)
     {
