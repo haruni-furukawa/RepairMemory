@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class EventManager : MonoBehaviour
 {
-    private const float EVENT_DISTANCE = 5.0f;
+    private const float EVENT_DISTANCE = 12.5f;
     public static EventManager Instance { get; private set; }
     public IngameManager ingameManager;
     public UIManager uiManager;
