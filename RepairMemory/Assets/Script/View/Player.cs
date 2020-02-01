@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     private float speed = 5.0f;
+    private float rotateY = 0.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +34,17 @@ public class Player : MonoBehaviour
     public void runLeft()
     {
         transform.position -= transform.right * speed * Time.deltaTime;
+    }
+
+    public void turnRight()
+    {
+        transform.rotation = Quaternion.Euler(0, rotateY, 0);
+        rotateY++;
+    }
+    public void turnLeft()
+    {
+        transform.rotation = Quaternion.Euler(0, rotateY, 0);
+        rotateY--;
     }
 
 

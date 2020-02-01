@@ -26,6 +26,14 @@ public class InputManager : MonoBehaviour
         {
             player.runLeft();
         }
+        if (Input.GetKey(KeyCode.E))
+        {
+            player.turnRight();
+        }
+        if (Input.GetKey(KeyCode.Q))
+        {
+            player.turnLeft();
+        }
 
     }
 }

@@ -15,7 +15,7 @@ public class CameraManager : MonoBehaviour
     void Update()
     {
         transform.localEulerAngles = player.transform.localEulerAngles;
-        Vector3 newPosition = player.transform.position - transform.forward.normalized * 5;
+        Vector3 newPosition = player.transform.position - transform.forward.normalized * 7;
         newPosition.y += 3;
         transform.position = newPosition;
     }
