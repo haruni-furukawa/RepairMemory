@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 506a9261bfc7d46f6be3bc4cc9f68ae0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 5388626776487200306}
 --- !u!65 &5524129378479009734
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -222,6 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70dd24c57c5ca46a88dc05121dc9eca6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 5388626776487200306}
 --- !u!1 &5388626776487200269
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,6 +277,7 @@ MonoBehaviour:
   attack: {fileID: 4814383420979481597}
   attack2: {fileID: 563347064964902235}
   skill: {fileID: 627835867499036236}
+  uiManager: {fileID: 0}
 --- !u!95 &5388626776487200304
 Animator:
   serializedVersion: 3

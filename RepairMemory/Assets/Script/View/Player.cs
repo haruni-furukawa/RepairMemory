@@ -10,10 +10,11 @@ public class Player : MonoBehaviour
     public GameObject attack = null;
     public GameObject attack2 = null;
     public GameObject skill = null;
+    public UIManager uiManager = null;
     private int hp = 10;
-    private int maxHp = 10;
+    private int hpMax = 10;
     private int sp = 0;
-    private int maxSp = 10;
+    private int spMax = 10;
 
     // Start is called before the first frame update
     void Start()
@@ -24,8 +25,17 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        uiManager.SetHpBar((float)hp / (float)hpMax);
+        uiManager.SetSpBar((float)sp / (float)spMax);
     }
-
+    public void IncreaseSp()
+    {
+        sp++;
+        if(sp > spMax)
+        {
+            sp = spMax;
+        }
+    }
     public void runUp()
     {
         transform.position += transform.forward * speed * Time.deltaTime;
@@ -98,7 +108,11 @@ public class Player : MonoBehaviour
 
     public void Skill()
     {
-        animator.SetBool("skill", true);
+        if (sp == spMax)
+        {
+            animator.SetBool("skill", true);
+            sp = 0;
+        }
     }
     public void SkillStart()
     {
