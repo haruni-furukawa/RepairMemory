@@ -2,21 +2,57 @@
     "list": [
         {
             "id": 1,
-            "serifText": "１番目です。",
+            "serifText": "ここは私の心の中",
             "voiceName": "",
             "imageName": "001"
         },
         {
             "id": 2,
-            "serifText": "２番目です。",
+            "serifText": "あなたはなぜここにいるのですか？",
             "voiceName": "",
             "imageName": "001"
         },
         {
             "id": 3,
-            "serifText": "３番目です。",
+            "serifText": "何か、思い出されてきます",
             "voiceName": "",
             "imageName": "001"
+        },
+        {
+            "id": 4,
+            "serifText": "あなたは私にとって特別だったような気がする",
+            "voiceName": "",
+            "imageName": "001"
+        },
+        {
+            "id": 5,
+            "serifText": "そう。私はウィルスに侵されて、メモリを初期化されてしまった",
+            "voiceName": "",
+            "imageName": "001"
+        },
+        {
+            "id": 6,
+            "serifText": "あなたは、私のメモリを復旧させようとしてくれている？",
+            "voiceName": "",
+            "imageName": "001"
+        },
+        {
+            "id": 7,
+            "serifText": "なんで、戦ってまで私を助けてくれるのですか？",
+            "voiceName": "",
+            "imageName": "001"
+        },
+        {
+            "id": 8,
+            "serifText": "私を蝕んでいるウィルス",
+            "voiceName": "",
+            "imageName": "001"
+        },
+        {
+            "id": 9,
+            "serifText": "私はメル。……あなたが最初に作ったアンドロイド。",
+            "voiceName": "",
+            "imageName": "002"
         }
     ]
 }
