@@ -94,7 +94,10 @@ public class EventManager : MonoBehaviour
         {
             if (model.id == id)
             {
-                queueFunc.Add (() => { });
+                queueFunc.Add (() =>
+                {
+                    SoundManager.Instance.PlayBossBattleBgm ();
+                });
                 break;
             }
         }

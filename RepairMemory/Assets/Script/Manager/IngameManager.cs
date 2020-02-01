@@ -23,6 +23,8 @@ public class IngameManager : MonoBehaviour
     void Start ()
     {
         CreateEnemies ("Enemy1", 10, 0, 0);
+        // SoundManager.Instance.PlayNormalBattleBgm ();
+        //CreateEnemies ("Enemy1", 10, 0, 0);
         //CreateEnemies("Enemy2", 10, 0, 0);
         //CreateEnemies("Enemy3", 5, 10, 10);
     }

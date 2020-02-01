@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameDataManager : MonoBehaviour
 {
@@ -40,6 +39,5 @@ public class GameDataManager : MonoBehaviour
     private void Start ()
     {
         InitializeGameDataManager ();
-        SceneManager.LoadScene ("Title");
     }
 }
