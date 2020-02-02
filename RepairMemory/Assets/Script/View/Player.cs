@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private float speed = 5.0f;
+    private float speed = 15.0f;
     private float rotateY = 0.0f;
     public Animator animator = null;
     public GameObject attack = null;
     public GameObject attack2 = null;
     public GameObject skill = null;
     public UIManager uiManager = null;
+    public Queue<GameObject> objSkill = null;
+    public Queue<GameObject> objSkill2 = null;
     private int hp = 10;
     private int hpMax = 10;
     private int sp = 0;
@@ -20,7 +22,8 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start ()
     {
-
+        objSkill = new Queue<GameObject>();
+        objSkill2 = new Queue<GameObject>();
     }
 
     // Update is called once per frame
@@ -128,14 +131,16 @@ public class Player : MonoBehaviour
     {
         attack2.SetActive (true);
     }
-
     public void Skill ()
     {
-        if (sp == spMax)
-        {
+        var prefab = (GameObject)Resources.Load("Prefab/SkillEffect1");
+        objSkill.Enqueue(Instantiate(prefab, gameObject.transform.position, gameObject.transform.rotation, gameObject.transform));
+        Invoke("DestroySkill", 5);
+        //if (sp == spMax)
+        //{
             animator.SetBool ("skill", true);
             sp = 0;
-        }
+        //}
     }
     public void SkillStart ()
     { }
@@ -146,6 +151,9 @@ public class Player : MonoBehaviour
     }
     public void SkillImpact ()
     {
+        var prefab = (GameObject)Resources.Load("Prefab/SkillEffect2");
+        objSkill2.Enqueue(Instantiate(prefab, gameObject.transform.position, gameObject.transform.rotation, gameObject.transform));
+        Invoke("DestroySkill2", 5);
         skill.SetActive (true);
     }
     public void Defeat ()
@@ -170,5 +178,13 @@ public class Player : MonoBehaviour
     public void OnTriggerEnter (Collider collision)
     {
         //Debug.Log("Player.OnTriggerEnter");
+    }
+    public void DestroySkill()
+    {
+        Destroy(objSkill.Dequeue());
+    }
+    public void DestroySkill2()
+    {
+        Destroy(objSkill2.Dequeue());
     }
 }
