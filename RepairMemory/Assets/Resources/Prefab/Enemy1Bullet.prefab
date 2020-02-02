@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3267995818021648088}
   - component: {fileID: 3267995818021648089}
   - component: {fileID: 1508560629455129512}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Enemy1Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100006, guid: d6ebb0ab3f51846fdbe1ebd88c5a39e0, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: d6ebb0ab3f51846fdbe1ebd88c5a39e0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -119,15 +119,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: d6ebb0ab3f51846fdbe1ebd88c5a39e0, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: d6ebb0ab3f51846fdbe1ebd88c5a39e0, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: d6ebb0ab3f51846fdbe1ebd88c5a39e0, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6ebb0ab3f51846fdbe1ebd88c5a39e0, type: 3}

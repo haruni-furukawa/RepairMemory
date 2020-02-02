@@ -30,9 +30,9 @@ public class Enemy : MonoBehaviour
         nextTime -= Time.deltaTime;
         if (nextTime <= 0)
         {
-            //var prefab = (GameObject)Resources.Load("Prefab/Enemy1Bullet");
-            //var objEnemy = Instantiate(prefab, gameObject.transform.position, gameObject.transform.rotation);
-            //SetNextTime();
+            var prefab = (GameObject)Resources.Load("Prefab/Enemy1Bullet");
+            var objEnemy = Instantiate(prefab, gameObject.transform.position, gameObject.transform.rotation);
+            SetNextTime();
         }
         // 常にプレイヤーを見る
         if (player != null)

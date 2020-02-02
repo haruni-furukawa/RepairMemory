@@ -16,6 +16,8 @@ public class Player : MonoBehaviour
     public AudioClip soundSkill;
     public AudioClip soundSlash;
     public AudioClip soundSlash2;
+    public AudioClip soundDamage;
+    public AudioClip soundGet;
     private int hp = 10;
     private int hpMax = 10;
     private int sp = 0;
@@ -167,27 +169,37 @@ public class Player : MonoBehaviour
     public void Defeat ()
     {
         banishCount++;
-        if(banishCount >= 41)
+        if(banishCount == 41)
         {
+            audioSource.PlayOneShot(soundGet);
+            hp = hpMax;
             uiManager.SetMemoryParts(5);
         }
-        else if(banishCount >= 40)
+        if(banishCount == 40)
         {
+            audioSource.PlayOneShot(soundGet);
+            hp = hpMax;
             uiManager.SetMemoryParts(4);
         }
-        else if (banishCount >= 30)
+        if (banishCount == 30)
         {
+            audioSource.PlayOneShot(soundGet);
+            hp = hpMax;
             uiManager.SetMemoryParts(3);
         }
-        else if (banishCount >= 20)
+        if (banishCount == 20)
         {
+            audioSource.PlayOneShot(soundGet);
+            hp = hpMax;
             uiManager.SetMemoryParts(2);
         }
-        else if (banishCount >= 10)
+        if (banishCount == 10)
         {
+            audioSource.PlayOneShot(soundGet);
+            hp = hpMax;
             uiManager.SetMemoryParts(1);
         }
-        else
+        if(banishCount < 10)
         {
             uiManager.SetMemoryParts(0);
         }
@@ -197,6 +209,7 @@ public class Player : MonoBehaviour
     {
         animator.SetBool ("damage", true);
         hp -= damage;
+        audioSource.PlayOneShot(soundDamage);
         if (hp <= 0)
         {
             animator.SetBool ("death", true);

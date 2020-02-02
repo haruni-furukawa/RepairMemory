@@ -1363,7 +1363,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919419425}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -115, y: 0, z: 270}
+  m_LocalPosition: {x: -115, y: -0.55, z: 270}
   m_LocalScale: {x: 400, y: 1, z: 700}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2462,6 +2462,16 @@ PrefabInstance:
       propertyPath: soundSlash2
       value: 
       objectReference: {fileID: 8300000, guid: 53a79a06b99161e40b0c9cdf99efa5df, type: 3}
+    - target: {fileID: 5388626776487200306, guid: e6a9c9611b7ee43b08501e88412ba6c5,
+        type: 3}
+      propertyPath: soundDamage
+      value: 
+      objectReference: {fileID: 8300000, guid: aebb9bae70786cb4680636d884e2eb9b, type: 3}
+    - target: {fileID: 5388626776487200306, guid: e6a9c9611b7ee43b08501e88412ba6c5,
+        type: 3}
+      propertyPath: soundGet
+      value: 
+      objectReference: {fileID: 8300000, guid: 8c900993e5c5e42e0a8e38823231ac1e, type: 3}
     - target: {fileID: 5388626776487200307, guid: e6a9c9611b7ee43b08501e88412ba6c5,
         type: 3}
       propertyPath: m_LocalPosition.x
