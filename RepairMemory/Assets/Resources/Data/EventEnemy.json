@@ -2,14 +2,14 @@
   "list": [
     {
       "id": 1,
-      "prefabName": "enemy1",
+      "prefabName": "enemy2",
       "count": 3,
       "x": -0.293,
       "z": 1.22
     },
     {
       "id": 2,
-      "prefabName": "enemy2",
+      "prefabName": "enemy1",
       "count": 3,
       "x": -63.39,
       "z": 123.42
@@ -30,14 +30,14 @@
     },
     {
       "id": 5,
-      "prefabName": "enemy11",
+      "prefabName": "enemy12",
       "count": 7,
       "x": -0.293,
       "z": 1.22
     },
     {
       "id": 6,
-      "prefabName": "enemy12",
+      "prefabName": "enemy11",
       "count": 7,
       "x": -63.39,
       "z": 123.42
@@ -58,14 +58,14 @@
     },
     {
       "id": 9,
-      "prefabName": "enemy1",
+      "prefabName": "enemy2",
       "count": 5,
       "x": -216.69,
       "z": 525.22
     },
     {
       "id": 10,
-      "prefabName": "enemy2",
+      "prefabName": "enemy1",
       "count": 5,
       "x": -216.69,
       "z": 525.22
