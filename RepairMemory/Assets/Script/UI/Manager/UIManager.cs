@@ -50,9 +50,9 @@ public class UIManager : MonoBehaviour
         bossHpBar = null;
     }
 
-    public void ShowMessageWindow (string text, string standImageFileName, string voiceFileName)
+    public void ShowMessageWindow (string text, string standImageFileName, string voiceFileName, bool clearFlag = false)
     {
-        messageWindow.ShowMessageWindow (text, standImageFileName, voiceFileName);
+        messageWindow.ShowMessageWindow (text, standImageFileName, voiceFileName, clearFlag);
     }
     private void Awake ()
     {

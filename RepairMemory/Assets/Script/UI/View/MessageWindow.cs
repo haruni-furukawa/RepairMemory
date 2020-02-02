@@ -28,10 +28,13 @@ public class MessageWindow : MonoBehaviour
     private string _serifText = "";
     private string _voiceFilePath = "";
 
-    public void ShowMessageWindow (string text, string standImageFileName, string voiceFileName)
+    private bool _clearFlag = false;
+
+    public void ShowMessageWindow (string text, string standImageFileName, string voiceFileName, bool clearFlag = false)
     {
         _serifText = text;
         stand.sprite = null;
+        _clearFlag = clearFlag;
         if (standImageFileName.Length > 0) stand.sprite = Resources.Load<Sprite> ("Image/Character/Stand/" + standImageFileName);
         _voiceFilePath = voiceFileName.Length > 0 ? "Sound/Voice/" + voiceFileName : "";
         _stateType = MessageStateType.Initialze;
@@ -122,5 +125,14 @@ public class MessageWindow : MonoBehaviour
     {
         _animator.SetBool ("IsClose", false);
         _stateType = MessageStateType.Stay;
+        if (_clearFlag)
+        {
+            Clear ();
+        }
+    }
+
+    private void Clear ()
+    {
+        UIManager.Instance.ShowClear ();
     }
 }
