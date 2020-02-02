@@ -100,7 +100,7 @@ public class Player : MonoBehaviour
             return;
         }
         transform.rotation = Quaternion.Euler (0, rotateY, 0);
-        rotateY+=2;
+        rotateY+=1;
     }
     public void turnLeft ()
     {
@@ -109,7 +109,7 @@ public class Player : MonoBehaviour
             return;
         }
         transform.rotation = Quaternion.Euler (0, rotateY, 0);
-        rotateY-=2;
+        rotateY-=1;
     }
 
     public void Attack ()
