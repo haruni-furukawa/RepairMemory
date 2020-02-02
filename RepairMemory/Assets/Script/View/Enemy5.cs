@@ -4,8 +4,14 @@ using UnityEngine.UI;
 public class Enemy5 : Enemy
 {
     public UIManager uiManager;
-    void Start ()
+    protected override string GetBulletName()
     {
+        return "Enemy5Bullet";
+    }
+
+    public void Start ()
+    {
+        base.Start();
         hp = 20;
         hpMax = 20;
     }

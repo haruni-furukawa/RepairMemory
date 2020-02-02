@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy1Bullet : MonoBehaviour
+public class Enemy3Bullet : MonoBehaviour
 {
-    float speed = 10;
+    float speed = 20;
     float totalTime = 0;
 
     // Start is called before the first frame update
@@ -28,9 +28,8 @@ public class Enemy1Bullet : MonoBehaviour
         var player = collider.gameObject.GetComponent<Player>();
         if (player != null)
         {
-            player.Damage(1);
+            player.Damage(2);
         }
 
     }
-
 }

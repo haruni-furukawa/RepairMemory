@@ -14013,8 +14013,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2645285835499036800}
-  - component: {fileID: 2645285835499036801}
   - component: {fileID: 2089892827306565104}
+  - component: {fileID: 1362096895496584599}
   m_Layer: 10
   m_Name: Enemy3Bullet
   m_TagString: Untagged
@@ -14037,18 +14037,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &2645285835499036801
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2645285835499036803}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a917d6c29a7d4115b4a1e8e8f0bce4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &2089892827306565104
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14062,3 +14050,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.31325752, y: 3.1578398, z: 0.33692932}
   m_Center: {x: -0.000000029802322, y: 1.0789199, z: 0.028663635}
+--- !u!114 &1362096895496584599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2645285835499036803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9395853ad44db406589775361aac16b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

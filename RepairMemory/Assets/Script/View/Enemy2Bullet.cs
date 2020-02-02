@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy1Bullet : MonoBehaviour
+public class Enemy2Bullet : MonoBehaviour
 {
-    float speed = 10;
+    float speed = 20;
     float totalTime = 0;
 
     // Start is called before the first frame update

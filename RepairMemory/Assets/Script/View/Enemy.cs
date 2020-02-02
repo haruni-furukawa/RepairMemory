@@ -19,18 +19,27 @@ public class Enemy : MonoBehaviour
         this.player = player;
     }
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         SetNextTime();
+    }
+
+    protected virtual string GetBulletName()
+    {
+        return "Enemy1Bullet";
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(hp <= 0)
+        {
+            return;
+        }
         nextTime -= Time.deltaTime;
         if (nextTime <= 0)
         {
-            var prefab = (GameObject)Resources.Load("Prefab/Enemy1Bullet");
+            var prefab = (GameObject)Resources.Load("Prefab/" + GetBulletName());
             var objEnemy = Instantiate(prefab, gameObject.transform.position, gameObject.transform.rotation);
             SetNextTime();
         }
