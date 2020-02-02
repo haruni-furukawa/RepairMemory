@@ -11,6 +11,8 @@ using System.Collections.Generic;
     public int id;
     public string prefabName;
     public int count;
+    public float x;
+    public float z;
     public string GetprefabName ()
     {
         return prefabName;

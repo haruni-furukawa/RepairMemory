@@ -2,7 +2,10 @@
   "list": [
     {
       "id": 1,
-      "prefabName": "enemy5"
+      "prefabName": "enemy5",
+      "count": 1,
+      "x": -216.69,
+      "z": 525.22
     }
   ]
 }

@@ -3,22 +3,30 @@
     {
       "id": 1,
       "prefabName": "enemy1",
-      "count": 5
+      "count": 5,
+      "x": -0.293,
+      "z": 1.22
     },
     {
       "id": 2,
       "prefabName": "enemy2",
-      "count": 5
+      "count": 5,
+      "x": -63.39,
+      "z": 123.42
     },
     {
       "id": 3,
       "prefabName": "enemy3",
-      "count": 5
+      "count": 5,
+      "x": 17.8,
+      "z": 243.12
     },
     {
       "id": 4,
       "prefabName": "enemy4",
-      "count": 5
+      "count": 5,
+      "x": -92.09,
+      "z": 352.22
     }
   ]
 }
