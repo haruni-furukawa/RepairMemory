@@ -38,6 +38,7 @@ public class Enemy : MonoBehaviour
             targetPos.y = transform.position.y;
             transform.LookAt(targetPos);
         }
+        var gap = player.transform.position - transform.position;
     }
 
     public virtual void Damage(int damage)
@@ -55,10 +56,15 @@ public class Enemy : MonoBehaviour
             forward = -gameObject.transform.forward.normalized * 5000;
             forward.y = 2000;
             player.Defeat();
+            Invoke("Dead",3);
         }
         rb.AddForce(forward);
         float perHp = (float)hp / (float)hpMax;
         imgHp.fillAmount = perHp;
+    }
 
+    public void Dead()
+    {
+        Destroy(gameObject);
     }
 }
