@@ -37,8 +37,8 @@ public class IngameManager : MonoBehaviour
         // SoundManager.Instance.PlayNormalBattleBgm ();
         //CreateEnemies ("Enemy1", 10, 0, 0);
         //CreateEnemies("Enemy2", 10, 0, 0);
-        //CreateEnemies("Enemy3", 5, 10, 10);
-        CreateBoss("Enemy5", 1, 10, 0);
+        CreateEnemies("Enemy11", 5, 10, 10);
+        //CreateBoss("Enemy5", 1, 10, 0);
     }
 
     // Update is called once per frame
