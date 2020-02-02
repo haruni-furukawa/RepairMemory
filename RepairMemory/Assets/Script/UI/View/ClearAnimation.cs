@@ -10,6 +10,7 @@ public class ClearAnimation : MonoBehaviour
     }
     public void OnEndAnimation ()
     {
-        SceneManager.LoadScene ("Title");
+        SoundManager.Instance.StopAllBgm ();
+        SceneManager.LoadScene ("Clear");
     }
 }
