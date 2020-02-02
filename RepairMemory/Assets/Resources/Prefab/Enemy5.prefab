@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 42941876222460806}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children:
   - {fileID: 8215750542409284604}
   m_Father: {fileID: 0}
@@ -76,6 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   imgHp: {fileID: 0}
+  uiManager: {fileID: 0}
 --- !u!1001 &3998775735754854630
 PrefabInstance:
   m_ObjectHideFlags: 0
