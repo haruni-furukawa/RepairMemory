@@ -6,10 +6,10 @@ public class Enemy5 : Enemy
     public UIManager uiManager;
     protected override string GetBulletName()
     {
-        return "Enemy5Bullet";
+        return "Enemy4Bullet";
     }
 
-    public void Start ()
+    public new void Start ()
     {
         base.Start();
         hp = 20;

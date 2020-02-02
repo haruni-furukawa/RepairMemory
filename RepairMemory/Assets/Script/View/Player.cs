@@ -35,6 +35,7 @@ public class Player : MonoBehaviour
         objSkill = new Queue<GameObject>();
         objSkill2 = new Queue<GameObject>();
         audioSource = GetComponent<AudioSource>();
+        uiManager.SetMemoryParts(0);
     }
 
     // Update is called once per frame
@@ -146,14 +147,14 @@ public class Player : MonoBehaviour
     }
     public void Skill ()
     {
-        var prefab = (GameObject)Resources.Load("Prefab/SkillEffect1");
-        objSkill.Enqueue(Instantiate(prefab, gameObject.transform.position, gameObject.transform.rotation, gameObject.transform));
-        Invoke("DestroySkill", 5);
-        //if (sp == spMax)
-        //{
+        if (sp == spMax)
+        {
+            var prefab = (GameObject)Resources.Load("Prefab/SkillEffect1");
+            objSkill.Enqueue(Instantiate(prefab, gameObject.transform.position, gameObject.transform.rotation, gameObject.transform));
+            Invoke("DestroySkill", 5);
             animator.SetBool ("skill", true);
             sp = 0;
-        //}
+        }
     }
     public void SkillStart ()
     { }
