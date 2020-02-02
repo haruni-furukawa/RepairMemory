@@ -13,17 +13,22 @@ public class Player : MonoBehaviour
     public UIManager uiManager = null;
     public Queue<GameObject> objSkill = null;
     public Queue<GameObject> objSkill2 = null;
+    public AudioClip soundSkill;
+    public AudioClip soundSlash;
+    public AudioClip soundSlash2;
     private int hp = 10;
     private int hpMax = 10;
     private int sp = 0;
     private int spMax = 10;
     private int banishCount = 0;
+    private AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start ()
     {
         objSkill = new Queue<GameObject>();
         objSkill2 = new Queue<GameObject>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -113,6 +118,7 @@ public class Player : MonoBehaviour
     }
     public void AttackImpact ()
     {
+        audioSource.PlayOneShot(soundSlash);
         attack.SetActive (true);
     }
 
@@ -129,6 +135,7 @@ public class Player : MonoBehaviour
     }
     public void Attack2Impact ()
     {
+        audioSource.PlayOneShot(soundSlash2);
         attack2.SetActive (true);
     }
     public void Skill ()
@@ -153,6 +160,7 @@ public class Player : MonoBehaviour
     {
         var prefab = (GameObject)Resources.Load("Prefab/SkillEffect2");
         objSkill2.Enqueue(Instantiate(prefab, gameObject.transform.position, gameObject.transform.rotation, gameObject.transform));
+        audioSource.PlayOneShot(soundSkill);
         Invoke("DestroySkill2", 5);
         skill.SetActive (true);
     }
