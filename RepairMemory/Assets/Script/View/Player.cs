@@ -167,6 +167,30 @@ public class Player : MonoBehaviour
     public void Defeat ()
     {
         banishCount++;
+        if(banishCount >= 41)
+        {
+            uiManager.SetMemoryParts(5);
+        }
+        else if(banishCount >= 40)
+        {
+            uiManager.SetMemoryParts(4);
+        }
+        else if (banishCount >= 30)
+        {
+            uiManager.SetMemoryParts(3);
+        }
+        else if (banishCount >= 20)
+        {
+            uiManager.SetMemoryParts(2);
+        }
+        else if (banishCount >= 10)
+        {
+            uiManager.SetMemoryParts(1);
+        }
+        else
+        {
+            uiManager.SetMemoryParts(0);
+        }
         uiManager.SetBanishCount (banishCount);
     }
     public void Damage (int damage)
