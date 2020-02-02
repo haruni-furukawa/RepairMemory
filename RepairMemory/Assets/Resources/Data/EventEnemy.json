@@ -55,6 +55,34 @@
       "count": 7,
       "x": -92.09,
       "z": 352.22
+    },
+    {
+      "id": 9,
+      "prefabName": "enemy1",
+      "count": 5,
+      "x": -216.69,
+      "z": 525.22
+    },
+    {
+      "id": 10,
+      "prefabName": "enemy2",
+      "count": 5,
+      "x": -216.69,
+      "z": 525.22
+    },
+    {
+      "id": 11,
+      "prefabName": "enemy3",
+      "count": 5,
+      "x": -216.69,
+      "z": 525.22
+    },
+    {
+      "id": 12,
+      "prefabName": "enemy4",
+      "count": 5,
+      "x": -216.69,
+      "z": 525.22
     }
   ]
 }
