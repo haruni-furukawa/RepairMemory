@@ -3,28 +3,56 @@
     {
       "id": 1,
       "prefabName": "enemy1",
-      "count": 5,
+      "count": 3,
       "x": -0.293,
       "z": 1.22
     },
     {
       "id": 2,
       "prefabName": "enemy2",
-      "count": 5,
+      "count": 3,
       "x": -63.39,
       "z": 123.42
     },
     {
       "id": 3,
       "prefabName": "enemy3",
-      "count": 5,
+      "count": 3,
       "x": 17.8,
       "z": 243.12
     },
     {
       "id": 4,
       "prefabName": "enemy4",
-      "count": 5,
+      "count": 3,
+      "x": -92.09,
+      "z": 352.22
+    },
+    {
+      "id": 5,
+      "prefabName": "enemy11",
+      "count": 7,
+      "x": -0.293,
+      "z": 1.22
+    },
+    {
+      "id": 6,
+      "prefabName": "enemy12",
+      "count": 7,
+      "x": -63.39,
+      "z": 123.42
+    },
+    {
+      "id": 7,
+      "prefabName": "enemy13",
+      "count": 7,
+      "x": 17.8,
+      "z": 243.12
+    },
+    {
+      "id": 8,
+      "prefabName": "enemy14",
+      "count": 7,
       "x": -92.09,
       "z": 352.22
     }
