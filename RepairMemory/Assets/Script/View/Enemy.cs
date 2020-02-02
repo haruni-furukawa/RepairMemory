@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        nextTime = Random.Range(5.0f, 10.0f);
+        SetNextTime();
     }
 
     // Update is called once per frame
@@ -29,7 +29,7 @@ public class Enemy : MonoBehaviour
         {
             var prefab = (GameObject)Resources.Load("Prefab/Enemy1Bullet");
             var objEnemy = Instantiate(prefab, gameObject.transform.position, gameObject.transform.rotation);
-            nextTime = Random.Range(1.0f, 5.0f);
+            SetNextTime();
         }
         // 常にプレイヤーを見る
         if (player != null)
@@ -38,7 +38,10 @@ public class Enemy : MonoBehaviour
             targetPos.y = transform.position.y;
             transform.LookAt(targetPos);
         }
-        var gap = player.transform.position - transform.position;
+    }
+    public virtual void SetNextTime()
+    {
+        nextTime = Random.Range(1.0f, 5.0f);
     }
 
     public virtual void Damage(int damage)
