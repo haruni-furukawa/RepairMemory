@@ -2082,6 +2082,7 @@ MonoBehaviour:
   spBar: {fileID: 990126593}
   banishCount: {fileID: 1837540457}
   messageWindow: {fileID: 1930008302}
+  inGameManager: {fileID: 873203975}
   clearAnimation: {fileID: 948714462}
   gameOverAnimation: {fileID: 400950547}
 --- !u!1 &1489871328
