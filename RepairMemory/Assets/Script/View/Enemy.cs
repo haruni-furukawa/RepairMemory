@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
@@ -10,6 +12,7 @@ public class Enemy : MonoBehaviour
     public Image imgHp;
     protected float nextTime = 0.0f;
     protected float totalTime = 0.0f;
+    public Queue<GameObject> objHit = new Queue<GameObject>();
 
     public void SetPlayer(Player player)
     {
@@ -27,9 +30,9 @@ public class Enemy : MonoBehaviour
         nextTime -= Time.deltaTime;
         if (nextTime <= 0)
         {
-            var prefab = (GameObject)Resources.Load("Prefab/Enemy1Bullet");
-            var objEnemy = Instantiate(prefab, gameObject.transform.position, gameObject.transform.rotation);
-            SetNextTime();
+            //var prefab = (GameObject)Resources.Load("Prefab/Enemy1Bullet");
+            //var objEnemy = Instantiate(prefab, gameObject.transform.position, gameObject.transform.rotation);
+            //SetNextTime();
         }
         // 常にプレイヤーを見る
         if (player != null)
@@ -52,6 +55,10 @@ public class Enemy : MonoBehaviour
         }
         nextTime = Random.Range(2.0f, 6.0f);
         hp -= damage;
+        var prefab = (GameObject)Resources.Load("Prefab/EnemyHitEffect");
+        objHit.Enqueue(Instantiate(prefab, gameObject.transform.position, gameObject.transform.rotation, gameObject.transform));
+        Invoke("DestroyHit", 2);
+
         var rb = gameObject.GetComponent<Rigidbody>();
         var forward = -gameObject.transform.forward.normalized * 500;
         if (hp <= 0)
@@ -65,7 +72,10 @@ public class Enemy : MonoBehaviour
         float perHp = (float)hp / (float)hpMax;
         imgHp.fillAmount = perHp;
     }
-
+    public void DestroyHit()
+    {
+        Destroy(objHit.Dequeue());
+    }
     public void Dead()
     {
         Destroy(gameObject);
