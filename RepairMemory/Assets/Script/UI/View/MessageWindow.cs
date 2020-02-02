@@ -21,7 +21,7 @@ public class MessageWindow : MonoBehaviour
     private MessageStateType _stateType = MessageStateType.Stay;
 
     private string currentSentence = string.Empty; // 現在の文字列
-    private float timeUntilDisplay = 0.2f; // 表示にかかる時間
+    private float timeUntilDisplay = 0.1f; // 表示にかかる時間
     private float timeCloseDisplay = 2.0f; // クローズ時間
     private float timeCount = 0.0f; // 時間計測
 
