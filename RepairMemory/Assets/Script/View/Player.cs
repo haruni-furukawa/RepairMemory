@@ -18,6 +18,10 @@ public class Player : MonoBehaviour
     public AudioClip soundSlash2;
     public AudioClip soundDamage;
     public AudioClip soundGet;
+    public GameObject eventWall1;
+    public GameObject eventWall2;
+    public GameObject eventWall3;
+    public GameObject eventWall4;
     private int hp = 10;
     private int hpMax = 10;
     private int sp = 0;
@@ -180,24 +184,28 @@ public class Player : MonoBehaviour
             audioSource.PlayOneShot(soundGet);
             hp = hpMax;
             uiManager.SetMemoryParts(4);
+            Destroy(eventWall4);
         }
         if (banishCount == 30)
         {
             audioSource.PlayOneShot(soundGet);
             hp = hpMax;
             uiManager.SetMemoryParts(3);
+            Destroy(eventWall3);
         }
         if (banishCount == 20)
         {
             audioSource.PlayOneShot(soundGet);
             hp = hpMax;
             uiManager.SetMemoryParts(2);
+            Destroy(eventWall2);
         }
         if (banishCount == 10)
         {
             audioSource.PlayOneShot(soundGet);
             hp = hpMax;
             uiManager.SetMemoryParts(1);
+            Destroy(eventWall1);
         }
         if(banishCount < 10)
         {

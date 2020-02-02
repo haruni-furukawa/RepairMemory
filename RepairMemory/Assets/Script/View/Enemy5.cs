@@ -21,6 +21,9 @@ public class Enemy5 : Enemy
             return;
         }
         hp -= damage;
+        var prefab = (GameObject)Resources.Load("Prefab/EnemyHitEffect");
+        objHit.Enqueue(Instantiate(prefab, gameObject.transform.position, gameObject.transform.rotation, gameObject.transform));
+        Invoke("DestroyHit", 2);
         var rb = gameObject.GetComponent<Rigidbody> ();
         var forward = -gameObject.transform.forward.normalized * 500;
         if (hp <= 0)
@@ -32,7 +35,6 @@ public class Enemy5 : Enemy
         }
         rb.AddForce (forward);
         float perHp = (float) hp / (float) hpMax;
-        Debug.Log (perHp);
         uiManager.SetBossHpBar (perHp);
     }
 }
