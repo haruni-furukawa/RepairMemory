@@ -1,11 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class IngameManager : MonoBehaviour
 {
     public Player player;
     public UIManager uiManager;
+
+    private const int SCENE_CHANGE_TIME = 120;   //画面切り替え時間
+    private bool inGameEnd;     //クリアしたかゲームオーバーになった
+    private int sceneChangeTimer;   //画面切り替えタイマー    
+    private string nextSceneName;   //切り替え先のシーン名
 
     public void CreateEnemies (string prefabName, int count, float x, float z)
     {
@@ -29,6 +35,11 @@ public class IngameManager : MonoBehaviour
         enemy.SetUIManager (uiManager);
         enemy.SetPlayer (player);
     }
+    public void GameEndTimerStart(string nextSceneName)   //ゲームオーバー時かクリア時に呼び出される
+    {
+        inGameEnd = true;
+        this.nextSceneName = nextSceneName;
+    }
     // Start is called before the first frame update
     void Start ()
     {
@@ -44,6 +55,13 @@ public class IngameManager : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
-
+        if( inGameEnd == true )
+        {
+            sceneChangeTimer--;
+            if( sceneChangeTimer <= 0 )
+            {
+                SceneManager.LoadScene (nextSceneName);
+            }
+        }
     }
 }

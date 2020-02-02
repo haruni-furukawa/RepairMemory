@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class TitleManager : MonoBehaviour
+public class StoryManager : MonoBehaviour
 {
     // Start is called before the first frame update
     private bool _transitionFlag = false;
@@ -26,6 +26,6 @@ public class TitleManager : MonoBehaviour
     {
         Debug.Log ("test");
         _transitionFlag = true;
-        SceneManager.LoadScene ("Story");
+        SceneManager.LoadScene ("HowToPlay");
     }
 }
