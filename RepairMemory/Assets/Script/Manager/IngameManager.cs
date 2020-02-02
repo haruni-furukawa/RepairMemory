@@ -21,23 +21,23 @@ public class IngameManager : MonoBehaviour
     }
     public void CreateBoss (string prefabName, int count, float x, float z)
     {
-        var prefab = (GameObject)Resources.Load("Prefab/" + prefabName);
+        var prefab = (GameObject) Resources.Load ("Prefab/" + prefabName);
         var newX = x;
         var newZ = z;
-        var objEnemy = Instantiate(prefab, new Vector3(newX, 0.0f, newZ), Quaternion.identity);
-        var enemy = objEnemy.GetComponent<Enemy5>();
-        enemy.SetUIManager(uiManager);
-        enemy.SetPlayer(player);
+        var objEnemy = Instantiate (prefab, new Vector3 (newX, 0.0f, newZ), Quaternion.identity);
+        var enemy = objEnemy.GetComponent<Enemy5> ();
+        enemy.SetUIManager (uiManager);
+        enemy.SetPlayer (player);
     }
     // Start is called before the first frame update
     void Start ()
     {
         //CreateEnemies ("Enemy5", 1, 0, 0);
 
-        // SoundManager.Instance.PlayNormalBattleBgm ();
+        SoundManager.Instance.PlayNormalBattleBgm ();
         //CreateEnemies ("Enemy1", 10, 0, 0);
         //CreateEnemies("Enemy2", 10, 0, 0);
-        CreateEnemies("Enemy11", 5, 10, 10);
+        // CreateEnemies ("Enemy11", 5, 10, 10);
         //CreateBoss("Enemy5", 1, 10, 0);
     }
 

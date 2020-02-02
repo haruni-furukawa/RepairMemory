@@ -99,7 +99,6 @@ public class EventManager : MonoBehaviour
             {
                 queueFunc.Add (() =>
                 {
-                    // SoundManager.Instance.PlayBossBattleBgm ();
                     ingameManager.CreateBoss (model.prefabName, model.count, model.x, model.z);
                 });
                 break;
