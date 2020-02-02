@@ -32,10 +32,10 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start ()
     {
-        objSkill = new Queue<GameObject>();
-        objSkill2 = new Queue<GameObject>();
-        audioSource = GetComponent<AudioSource>();
-        uiManager.SetMemoryParts(0);
+        objSkill = new Queue<GameObject> ();
+        objSkill2 = new Queue<GameObject> ();
+        audioSource = GetComponent<AudioSource> ();
+        uiManager.SetMemoryParts (0);
     }
 
     // Update is called once per frame
@@ -116,8 +116,7 @@ public class Player : MonoBehaviour
     {
         animator.SetBool ("attack", true);
     }
-    public void AttackStart ()
-    { }
+    public void AttackStart () { }
     public void AttackEnd ()
     {
         animator.SetBool ("attack", false);
@@ -125,7 +124,7 @@ public class Player : MonoBehaviour
     }
     public void AttackImpact ()
     {
-        audioSource.PlayOneShot(soundSlash);
+        audioSource.PlayOneShot (soundSlash);
         attack.SetActive (true);
     }
 
@@ -133,8 +132,7 @@ public class Player : MonoBehaviour
     {
         animator.SetBool ("attack2", true);
     }
-    public void Attack2Start ()
-    { }
+    public void Attack2Start () { }
     public void Attack2End ()
     {
         animator.SetBool ("attack2", false);
@@ -142,22 +140,21 @@ public class Player : MonoBehaviour
     }
     public void Attack2Impact ()
     {
-        audioSource.PlayOneShot(soundSlash2);
+        audioSource.PlayOneShot (soundSlash2);
         attack2.SetActive (true);
     }
     public void Skill ()
     {
         if (sp == spMax)
         {
-            var prefab = (GameObject)Resources.Load("Prefab/SkillEffect1");
-            objSkill.Enqueue(Instantiate(prefab, gameObject.transform.position, gameObject.transform.rotation, gameObject.transform));
-            Invoke("DestroySkill", 5);
+            var prefab = (GameObject) Resources.Load ("Prefab/SkillEffect1");
+            objSkill.Enqueue (Instantiate (prefab, gameObject.transform.position, gameObject.transform.rotation, gameObject.transform));
+            Invoke ("DestroySkill", 5);
             animator.SetBool ("skill", true);
             sp = 0;
         }
     }
-    public void SkillStart ()
-    { }
+    public void SkillStart () { }
     public void SkillEnd ()
     {
         animator.SetBool ("skill", false);
@@ -165,52 +162,53 @@ public class Player : MonoBehaviour
     }
     public void SkillImpact ()
     {
-        var prefab = (GameObject)Resources.Load("Prefab/SkillEffect2");
-        objSkill2.Enqueue(Instantiate(prefab, gameObject.transform.position, gameObject.transform.rotation, gameObject.transform));
-        audioSource.PlayOneShot(soundSkill);
-        Invoke("DestroySkill2", 5);
+        var prefab = (GameObject) Resources.Load ("Prefab/SkillEffect2");
+        objSkill2.Enqueue (Instantiate (prefab, gameObject.transform.position, gameObject.transform.rotation, gameObject.transform));
+        audioSource.PlayOneShot (soundSkill);
+        Invoke ("DestroySkill2", 5);
         skill.SetActive (true);
     }
     public void Defeat ()
     {
         banishCount++;
-        if(banishCount == 41)
+        if (banishCount == 61)
         {
-            audioSource.PlayOneShot(soundGet);
+            audioSource.PlayOneShot (soundGet);
             hp = hpMax;
-            uiManager.SetMemoryParts(5);
+            uiManager.SetMemoryParts (5);
+            uiManager.ShowMessageWindow ("私はメル。……あなたが最初に作ったアンドロイド。", "002", "", true);
         }
-        if(banishCount == 40)
+        if (banishCount == 40)
         {
-            audioSource.PlayOneShot(soundGet);
+            audioSource.PlayOneShot (soundGet);
             hp = hpMax;
-            uiManager.SetMemoryParts(4);
-            Destroy(eventWall4);
+            uiManager.SetMemoryParts (4);
+            Destroy (eventWall4);
         }
         if (banishCount == 30)
         {
-            audioSource.PlayOneShot(soundGet);
+            audioSource.PlayOneShot (soundGet);
             hp = hpMax;
-            uiManager.SetMemoryParts(3);
-            Destroy(eventWall3);
+            uiManager.SetMemoryParts (3);
+            Destroy (eventWall3);
         }
         if (banishCount == 20)
         {
-            audioSource.PlayOneShot(soundGet);
+            audioSource.PlayOneShot (soundGet);
             hp = hpMax;
-            uiManager.SetMemoryParts(2);
-            Destroy(eventWall2);
+            uiManager.SetMemoryParts (2);
+            Destroy (eventWall2);
         }
         if (banishCount == 10)
         {
-            audioSource.PlayOneShot(soundGet);
+            audioSource.PlayOneShot (soundGet);
             hp = hpMax;
-            uiManager.SetMemoryParts(1);
-            Destroy(eventWall1);
+            uiManager.SetMemoryParts (1);
+            Destroy (eventWall1);
         }
-        if(banishCount < 10)
+        if (banishCount < 10)
         {
-            uiManager.SetMemoryParts(0);
+            uiManager.SetMemoryParts (0);
         }
         uiManager.SetBanishCount (banishCount);
     }
@@ -218,7 +216,7 @@ public class Player : MonoBehaviour
     {
         animator.SetBool ("damage", true);
         hp -= damage;
-        audioSource.PlayOneShot(soundDamage);
+        audioSource.PlayOneShot (soundDamage);
         if (hp <= 0)
         {
             animator.SetBool ("death", true);
@@ -233,12 +231,12 @@ public class Player : MonoBehaviour
     {
         //Debug.Log("Player.OnTriggerEnter");
     }
-    public void DestroySkill()
+    public void DestroySkill ()
     {
-        Destroy(objSkill.Dequeue());
+        Destroy (objSkill.Dequeue ());
     }
-    public void DestroySkill2()
+    public void DestroySkill2 ()
     {
-        Destroy(objSkill2.Dequeue());
+        Destroy (objSkill2.Dequeue ());
     }
 }

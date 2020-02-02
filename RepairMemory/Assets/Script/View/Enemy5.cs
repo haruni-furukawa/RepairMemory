@@ -4,14 +4,14 @@ using UnityEngine.UI;
 public class Enemy5 : Enemy
 {
     public UIManager uiManager;
-    protected override string GetBulletName()
+    protected override string GetBulletName ()
     {
         return "Enemy4Bullet";
     }
 
     public new void Start ()
     {
-        base.Start();
+        base.Start ();
         hp = 20;
         hpMax = 20;
     }
@@ -27,9 +27,9 @@ public class Enemy5 : Enemy
             return;
         }
         hp -= damage;
-        var prefab = (GameObject)Resources.Load("Prefab/EnemyHitEffect");
-        objHit.Enqueue(Instantiate(prefab, gameObject.transform.position, gameObject.transform.rotation, gameObject.transform));
-        Invoke("DestroyHit", 2);
+        var prefab = (GameObject) Resources.Load ("Prefab/EnemyHitEffect");
+        objHit.Enqueue (Instantiate (prefab, gameObject.transform.position, gameObject.transform.rotation, gameObject.transform));
+        Invoke ("DestroyHit", 2);
         var rb = gameObject.GetComponent<Rigidbody> ();
         var forward = -gameObject.transform.forward.normalized * 500;
         if (hp <= 0)
