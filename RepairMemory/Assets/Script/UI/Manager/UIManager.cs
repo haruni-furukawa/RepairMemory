@@ -15,6 +15,8 @@ public class UIManager : MonoBehaviour
     public MessageWindow messageWindow;
     public static UIManager Instance { get; private set; }
 
+    public IngameManager inGameManager;     
+
     public ClearAnimation clearAnimation;
     public GameOverAnimation gameOverAnimation;
 
@@ -22,11 +24,13 @@ public class UIManager : MonoBehaviour
     public void ShowClear ()
     {
         clearAnimation.Play ();
+        inGameManager.GameEndTimerStart("Clear");    //一定時間後にクリア画面に飛ばす
     }
 
     public void ShowGameOver ()
     {
         gameOverAnimation.Play ();
+        inGameManager.GameEndTimerStart("Credit");    //一定時間後にクレジット画面に飛ばす
     }
 
     public void ShowBossHpBar ()
