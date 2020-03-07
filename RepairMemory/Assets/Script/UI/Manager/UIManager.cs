@@ -21,6 +21,8 @@ public class UIManager : MonoBehaviour
     public GameOverAnimation gameOverAnimation;
 
     private BossHpBar bossHpBar;
+    private AudioSource audioSource;
+    public AudioClip soundGet;
     public void ShowClear ()
     {
         clearAnimation.Play ();
@@ -71,8 +73,11 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    private void Start () { audioSource = GetComponent<AudioSource> (); }
+
     public void SetMemoryParts (int index)
     {
+        if (0 < index && index < memoryParts.Count) { audioSource.PlayOneShot (soundGet); }
         if (0 <= index && index < memoryParts.Count)
         {
             foreach (GameObject parts in memoryParts) parts.SetActive (false);

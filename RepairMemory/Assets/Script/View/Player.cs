@@ -4,24 +4,23 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private float speed = 15.0f;
+    private float moveSpeed = 15.0f;
+    private float rotateSpeed = 25.0f;
+    private float RayLength = 2.5f;
     private float rotateY = 0.0f;
     public Animator animator = null;
     public GameObject attack = null;
     public GameObject attack2 = null;
     public GameObject skill = null;
     public UIManager uiManager = null;
+    public EventManager eventManager = null;
     public Queue<GameObject> objSkill = null;
     public Queue<GameObject> objSkill2 = null;
+    public LayerMask layermask;
     public AudioClip soundSkill;
     public AudioClip soundSlash;
     public AudioClip soundSlash2;
     public AudioClip soundDamage;
-    public AudioClip soundGet;
-    public GameObject eventWall1;
-    public GameObject eventWall2;
-    public GameObject eventWall3;
-    public GameObject eventWall4;
     private int hp = 10;
     private int hpMax = 10;
     private int sp = 0;
@@ -52,13 +51,20 @@ public class Player : MonoBehaviour
             sp = spMax;
         }
     }
+    private bool IsMoveability (Vector3 direction)
+    {
+        return !Physics.Raycast (transform.position, direction, RayLength, layermask, QueryTriggerInteraction.Ignore);
+    }
     public void runUp ()
     {
         if (hp <= 0)
         {
             return;
         }
-        transform.position += transform.forward * speed * Time.deltaTime;
+        if (IsMoveability (transform.forward))
+        {
+            transform.position += transform.forward * moveSpeed * Time.deltaTime;
+        }
         animator.SetBool ("run", true);
     }
     public void runDown ()
@@ -67,7 +73,10 @@ public class Player : MonoBehaviour
         {
             return;
         }
-        transform.position -= transform.forward * speed * Time.deltaTime;
+        if (IsMoveability (-transform.forward))
+        {
+            transform.position -= transform.forward * moveSpeed * Time.deltaTime;
+        }
         animator.SetBool ("run", true);
     }
     public void runRight ()
@@ -76,7 +85,10 @@ public class Player : MonoBehaviour
         {
             return;
         }
-        transform.position += transform.right * speed * Time.deltaTime;
+        if (IsMoveability (transform.right))
+        {
+            transform.position += transform.right * moveSpeed * Time.deltaTime;
+        }
         animator.SetBool ("run", true);
     }
     public void runLeft ()
@@ -85,7 +97,10 @@ public class Player : MonoBehaviour
         {
             return;
         }
-        transform.position -= transform.right * speed * Time.deltaTime;
+        if (IsMoveability (-transform.right))
+        {
+            transform.position -= transform.right * moveSpeed * Time.deltaTime;
+        }
         animator.SetBool ("run", true);
     }
     public void idle ()
@@ -100,7 +115,7 @@ public class Player : MonoBehaviour
             return;
         }
         transform.rotation = Quaternion.Euler (0, rotateY, 0);
-        rotateY+=1;
+        rotateY += Time.deltaTime * rotateSpeed;
     }
     public void turnLeft ()
     {
@@ -109,7 +124,7 @@ public class Player : MonoBehaviour
             return;
         }
         transform.rotation = Quaternion.Euler (0, rotateY, 0);
-        rotateY-=1;
+        rotateY -= Time.deltaTime * rotateSpeed;
     }
 
     public void Attack ()
@@ -171,47 +186,10 @@ public class Player : MonoBehaviour
     public void Defeat ()
     {
         banishCount++;
-        if (banishCount == 61)
-        {
-            audioSource.PlayOneShot (soundGet);
-            hp = hpMax;
-            uiManager.SetMemoryParts (5);
-            uiManager.ShowMessageWindow ("私はメル。……あなたが最初に作ったアンドロイド。", "002", "", true);
-        }
-        if (banishCount == 40)
-        {
-            audioSource.PlayOneShot (soundGet);
-            hp = hpMax;
-            uiManager.SetMemoryParts (4);
-            Destroy (eventWall4);
-        }
-        if (banishCount == 30)
-        {
-            audioSource.PlayOneShot (soundGet);
-            hp = hpMax;
-            uiManager.SetMemoryParts (3);
-            Destroy (eventWall3);
-        }
-        if (banishCount == 20)
-        {
-            audioSource.PlayOneShot (soundGet);
-            hp = hpMax;
-            uiManager.SetMemoryParts (2);
-            Destroy (eventWall2);
-        }
-        if (banishCount == 10)
-        {
-            audioSource.PlayOneShot (soundGet);
-            hp = hpMax;
-            uiManager.SetMemoryParts (1);
-            Destroy (eventWall1);
-        }
-        if (banishCount < 10)
-        {
-            uiManager.SetMemoryParts (0);
-        }
-        uiManager.SetBanishCount (banishCount);
+        eventManager.DefeatEvent (banishCount, HealHp);
     }
+
+    public void HealHp () { hp = hpMax; }
     public void Damage (int damage)
     {
         animator.SetBool ("damage", true);

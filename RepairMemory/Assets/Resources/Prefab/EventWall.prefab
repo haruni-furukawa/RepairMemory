@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5062730296743959727}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: EventWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 3803916059477632708}
   - component: {fileID: 3803916059477632709}
   - component: {fileID: 3803916059477632706}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: EventWall2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 3803916060904983748}
   - component: {fileID: 3803916060904983749}
   - component: {fileID: 3803916060904983746}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: EventWall3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -232,7 +232,7 @@ GameObject:
   - component: {fileID: 3803916061029720142}
   - component: {fileID: 3803916061029720143}
   - component: {fileID: 3803916061029720140}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: EventWall4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -325,7 +325,7 @@ GameObject:
   - component: {fileID: 3803916061140867231}
   - component: {fileID: 3803916061140867228}
   - component: {fileID: 3803916061140867229}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: EventWall1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
