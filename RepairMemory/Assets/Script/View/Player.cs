@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private float speed = 15.0f;
+    private float moveSpeed = 15.0f;
+    private float rotateSpeed = 25.0f;
+    private float RayLength = 2.5f;
     private float rotateY = 0.0f;
     public Animator animator = null;
     public GameObject attack = null;
@@ -14,6 +16,7 @@ public class Player : MonoBehaviour
     public EventManager eventManager = null;
     public Queue<GameObject> objSkill = null;
     public Queue<GameObject> objSkill2 = null;
+    public LayerMask layermask;
     public AudioClip soundSkill;
     public AudioClip soundSlash;
     public AudioClip soundSlash2;
@@ -48,13 +51,20 @@ public class Player : MonoBehaviour
             sp = spMax;
         }
     }
+    private bool IsMoveability (Vector3 direction)
+    {
+        return !Physics.Raycast (transform.position, direction, RayLength, layermask, QueryTriggerInteraction.Ignore);
+    }
     public void runUp ()
     {
         if (hp <= 0)
         {
             return;
         }
-        transform.position += transform.forward * speed * Time.deltaTime;
+        if (IsMoveability (transform.forward))
+        {
+            transform.position += transform.forward * moveSpeed * Time.deltaTime;
+        }
         animator.SetBool ("run", true);
     }
     public void runDown ()
@@ -63,7 +73,10 @@ public class Player : MonoBehaviour
         {
             return;
         }
-        transform.position -= transform.forward * speed * Time.deltaTime;
+        if (IsMoveability (-transform.forward))
+        {
+            transform.position -= transform.forward * moveSpeed * Time.deltaTime;
+        }
         animator.SetBool ("run", true);
     }
     public void runRight ()
@@ -72,7 +85,10 @@ public class Player : MonoBehaviour
         {
             return;
         }
-        transform.position += transform.right * speed * Time.deltaTime;
+        if (IsMoveability (transform.right))
+        {
+            transform.position += transform.right * moveSpeed * Time.deltaTime;
+        }
         animator.SetBool ("run", true);
     }
     public void runLeft ()
@@ -81,7 +97,10 @@ public class Player : MonoBehaviour
         {
             return;
         }
-        transform.position -= transform.right * speed * Time.deltaTime;
+        if (IsMoveability (-transform.right))
+        {
+            transform.position -= transform.right * moveSpeed * Time.deltaTime;
+        }
         animator.SetBool ("run", true);
     }
     public void idle ()
@@ -96,7 +115,7 @@ public class Player : MonoBehaviour
             return;
         }
         transform.rotation = Quaternion.Euler (0, rotateY, 0);
-        rotateY+=1;
+        rotateY += Time.deltaTime * rotateSpeed;
     }
     public void turnLeft ()
     {
@@ -105,7 +124,7 @@ public class Player : MonoBehaviour
             return;
         }
         transform.rotation = Quaternion.Euler (0, rotateY, 0);
-        rotateY-=1;
+        rotateY -= Time.deltaTime * rotateSpeed;
     }
 
     public void Attack ()
