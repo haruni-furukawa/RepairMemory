@@ -37,7 +37,6 @@ public class Enemy5 : Enemy
             forward = -gameObject.transform.forward.normalized * 5000;
             forward.y = 2000;
             player.Defeat ();
-            uiManager.ShowMessageWindow ("私はメル。……あなたが最初に作ったアンドロイド。", "002", "",true);
         }
         rb.AddForce (forward);
         float perHp = (float) hp / (float) hpMax;
