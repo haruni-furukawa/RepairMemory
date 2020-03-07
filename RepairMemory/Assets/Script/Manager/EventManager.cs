@@ -9,9 +9,11 @@ public class EventManager : MonoBehaviour
     public static EventManager Instance { get; private set; }
     public IngameManager ingameManager;
     public UIManager uiManager;
-
     public PlayData playData;
-
+    public GameObject eventWall1;
+    public GameObject eventWall2;
+    public GameObject eventWall3;
+    public GameObject eventWall4;
     private List<UnityAction> queueFunc = new List<UnityAction> ();
     private void Awake ()
     {
@@ -30,6 +32,42 @@ public class EventManager : MonoBehaviour
     {
         CheckFlag ();
         ExeFunc ();
+    }
+
+    public void DefeatEvent (int banishCount, UnityAction playerEvent)
+    {
+        if (banishCount == 61)
+        {
+            if (playerEvent != null) { playerEvent (); }
+            uiManager.SetMemoryParts (5);
+            uiManager.ShowMessageWindow ("私はメル。……あなたが最初に作ったアンドロイド。", "002", "", true);
+        }
+        if (banishCount == 40)
+        {
+            if (playerEvent != null) { playerEvent (); }
+            uiManager.SetMemoryParts (4);
+            Destroy (eventWall4);
+        }
+        if (banishCount == 30)
+        {
+            if (playerEvent != null) { playerEvent (); }
+            uiManager.SetMemoryParts (3);
+            Destroy (eventWall3);
+        }
+        if (banishCount == 20)
+        {
+            if (playerEvent != null) { playerEvent (); }
+            uiManager.SetMemoryParts (2);
+            Destroy (eventWall2);
+        }
+        if (banishCount == 10)
+        {
+            if (playerEvent != null) { playerEvent (); }
+            uiManager.SetMemoryParts (1);
+            Destroy (eventWall1);
+        }
+        if (banishCount < 10) { uiManager.SetMemoryParts (0); }
+        uiManager.SetBanishCount (banishCount);
     }
 
     void CheckFlag ()
