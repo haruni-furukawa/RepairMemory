@@ -9,13 +9,13 @@ public class BossHpBar : MonoBehaviour
     private bool InitializeHp = false;
     private float timeCount = 0.0f;
 
-    void Start ()
+    void Start()
     {
         hpBar.fillAmount = 0.0f;
-        SoundManager.Instance.StopAllBgm ();
+        SoundManager.Instance.StopAllBgm();
     }
 
-    void Update ()
+    void Update()
     {
         if (InitializeHp == false)
         {
@@ -29,12 +29,12 @@ public class BossHpBar : MonoBehaviour
                 hpBar.fillAmount = 1.0f;
                 timeCount = 0.0f;
                 InitializeHp = true;
-                SoundManager.Instance.PlayBossBattleBgm ();
+                SoundManager.Instance.PlayBossBattleBgm();
             }
         }
     }
 
-    public void SetHpBar (float hp)
+    public void SetHpBar(float hp)
     {
         if (InitializeHp)
         {

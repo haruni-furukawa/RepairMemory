@@ -4,13 +4,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class ClearAnimation : MonoBehaviour
 {
-    public void Play ()
+    public void Play()
     {
-        GetComponent<Animator> ().SetTrigger ("Play");
+        GetComponent<Animator>().SetTrigger("Play");
     }
-    public void OnEndAnimation ()
+    public void OnEndAnimation()
     {
-        SoundManager.Instance.StopAllBgm ();
-        SceneManager.LoadScene ("Clear");
+        SoundManager.Instance.StopAllBgm();
+        SceneManager.LoadScene("Clear");
     }
 }

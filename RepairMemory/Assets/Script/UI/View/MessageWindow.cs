@@ -30,40 +30,40 @@ public class MessageWindow : MonoBehaviour
 
     private bool _clearFlag = false;
 
-    public void ShowMessageWindow (string text, string standImageFileName, string voiceFileName, bool clearFlag = false)
+    public void ShowMessageWindow(string text, string standImageFileName, string voiceFileName, bool clearFlag = false)
     {
         _serifText = text;
         stand.sprite = null;
         _clearFlag = clearFlag;
-        if (standImageFileName.Length > 0) stand.sprite = Resources.Load<Sprite> ("Image/Character/Stand/" + standImageFileName);
+        if (standImageFileName.Length > 0) stand.sprite = Resources.Load<Sprite>("Image/Character/Stand/" + standImageFileName);
         _voiceFilePath = voiceFileName.Length > 0 ? "Sound/Voice/" + voiceFileName : "";
         _stateType = MessageStateType.Initialze;
     }
 
-    void InitialzeVariable ()
+    void InitialzeVariable()
     {
         currentSentence = string.Empty;
         _stateType = MessageStateType.OpenAnimation;
     }
 
-    void Update ()
+    void Update()
     {
         switch (_stateType)
         {
             case MessageStateType.Initialze:
-                InitialzeVariable ();
+                InitialzeVariable();
                 break;
             case MessageStateType.OpenAnimation:
-                PlayOpen ();
+                PlayOpen();
                 break;
             case MessageStateType.PlayVoice:
-                PlayVoice ();
+                PlayVoice();
                 break;
             case MessageStateType.SerifAnimation:
-                PlaySerif ();
+                PlaySerif();
                 break;
             case MessageStateType.CloseAnimation:
-                PlayClose ();
+                PlayClose();
                 break;
             case MessageStateType.Stay:
             default:
@@ -71,22 +71,22 @@ public class MessageWindow : MonoBehaviour
         }
     }
 
-    void PlayOpen ()
+    void PlayOpen()
     {
-        _animator.SetBool ("IsOpen", true);
+        _animator.SetBool("IsOpen", true);
         _stateType = MessageStateType.PlayVoice;
     }
 
-    void PlayVoice ()
+    void PlayVoice()
     {
         if (_audioSource != null && _voiceFilePath != "")
         {
-            AudioClip voice = Resources.Load<AudioClip> (_voiceFilePath);
-            _audioSource.PlayOneShot (voice);
+            AudioClip voice = Resources.Load<AudioClip>(_voiceFilePath);
+            _audioSource.PlayOneShot(voice);
         }
         _stateType = MessageStateType.SerifAnimation;
     }
-    void PlaySerif ()
+    void PlaySerif()
     {
         timeCount += Time.deltaTime;
         if (currentSentence.Length == _serifText.Length)
@@ -101,13 +101,13 @@ public class MessageWindow : MonoBehaviour
         {
             if (timeCount >= timeUntilDisplay)
             {
-                UpdateSerif ();
+                UpdateSerif();
                 timeCount = 0;
             }
         }
     }
 
-    void UpdateSerif ()
+    void UpdateSerif()
     {
         int currentDispIndex = currentSentence.Length;
 
@@ -115,24 +115,24 @@ public class MessageWindow : MonoBehaviour
         message.text = currentSentence;
     }
 
-    void PlayClose ()
+    void PlayClose()
     {
-        _animator.SetBool ("IsOpen", false);
-        _animator.SetBool ("IsClose", true);
+        _animator.SetBool("IsOpen", false);
+        _animator.SetBool("IsClose", true);
     }
 
-    public void OnEndClose ()
+    public void OnEndClose()
     {
-        _animator.SetBool ("IsClose", false);
+        _animator.SetBool("IsClose", false);
         _stateType = MessageStateType.Stay;
         if (_clearFlag)
         {
-            Clear ();
+            Clear();
         }
     }
 
-    private void Clear ()
+    private void Clear()
     {
-        UIManager.Instance.ShowClear ();
+        UIManager.Instance.ShowClear();
     }
 }

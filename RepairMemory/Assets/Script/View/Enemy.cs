@@ -32,7 +32,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(hp <= 0)
+        if (hp <= 0)
         {
             return;
         }
@@ -58,7 +58,7 @@ public class Enemy : MonoBehaviour
 
     public virtual void Damage(int damage)
     {
-        if(hp <= 0)
+        if (hp <= 0)
         {
             return;
         }
@@ -75,7 +75,7 @@ public class Enemy : MonoBehaviour
             forward = -gameObject.transform.forward.normalized * 5000;
             forward.y = 2000;
             player.Defeat();
-            Invoke("Dead",3);
+            Invoke("Dead", 3);
         }
         rb.AddForce(forward);
         float perHp = (float)hp / (float)hpMax;

@@ -13,27 +13,27 @@ public class IngameManager : MonoBehaviour
     private int sceneChangeTimer;   //画面切り替えタイマー    
     private string nextSceneName;   //切り替え先のシーン名
 
-    public void CreateEnemies (string prefabName, int count, float x, float z)
+    public void CreateEnemies(string prefabName, int count, float x, float z)
     {
         for (var i = 0; i < count; i++)
         {
-            var prefab = (GameObject) Resources.Load ("Prefab/" + prefabName);
-            var newX = x + Random.Range (-10f, 10f);
-            var newZ = z + Random.Range (-10f, 10f);
-            var objEnemy = Instantiate (prefab, new Vector3 (newX, 0.0f, newZ), Quaternion.identity);
-            var enemy = objEnemy.GetComponent<Enemy> ();
-            enemy.SetPlayer (player);
+            var prefab = (GameObject)Resources.Load("Prefab/" + prefabName);
+            var newX = x + Random.Range(-10f, 10f);
+            var newZ = z + Random.Range(-10f, 10f);
+            var objEnemy = Instantiate(prefab, new Vector3(newX, 0.0f, newZ), Quaternion.identity);
+            var enemy = objEnemy.GetComponent<Enemy>();
+            enemy.SetPlayer(player);
         }
     }
-    public void CreateBoss (string prefabName, int count, float x, float z)
+    public void CreateBoss(string prefabName, int count, float x, float z)
     {
-        var prefab = (GameObject) Resources.Load ("Prefab/" + prefabName);
+        var prefab = (GameObject)Resources.Load("Prefab/" + prefabName);
         var newX = x;
         var newZ = z;
-        var objEnemy = Instantiate (prefab, new Vector3 (newX, 0.0f, newZ), Quaternion.identity);
-        var enemy = objEnemy.GetComponent<Enemy5> ();
-        enemy.SetUIManager (uiManager);
-        enemy.SetPlayer (player);
+        var objEnemy = Instantiate(prefab, new Vector3(newX, 0.0f, newZ), Quaternion.identity);
+        var enemy = objEnemy.GetComponent<Enemy5>();
+        enemy.SetUIManager(uiManager);
+        enemy.SetPlayer(player);
     }
     public void GameEndTimerStart(string nextSceneName)   //ゲームオーバー時かクリア時に呼び出される
     {
@@ -41,11 +41,11 @@ public class IngameManager : MonoBehaviour
         this.nextSceneName = nextSceneName;
     }
     // Start is called before the first frame update
-    void Start ()
+    void Start()
     {
         //CreateEnemies ("Enemy5", 1, 0, 0);
 
-        SoundManager.Instance.PlayNormalBattleBgm ();
+        SoundManager.Instance.PlayNormalBattleBgm();
         //CreateEnemies ("Enemy1", 10, 0, 0);
         //CreateEnemies("Enemy2", 10, 0, 0);
         // CreateEnemies ("Enemy11", 5, 10, 10);
@@ -53,14 +53,14 @@ public class IngameManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update ()
+    void Update()
     {
-        if( inGameEnd == true )
+        if (inGameEnd == true)
         {
             sceneChangeTimer--;
-            if( sceneChangeTimer <= 0 )
+            if (sceneChangeTimer <= 0)
             {
-                SceneManager.LoadScene (nextSceneName);
+                SceneManager.LoadScene(nextSceneName);
             }
         }
     }

@@ -6,9 +6,9 @@ using UnityEngine.SceneManagement;
 public class InitializeManager : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start ()
+    void Start()
     {
         // TODO 初期化処理
-        SceneManager.LoadScene ("Title");
+        SceneManager.LoadScene("Title");
     }
 }

@@ -9,35 +9,35 @@ public class GameDataManager : MonoBehaviour
     public static EventSerifData eventSerifData { get; private set; }
     public static EventEnemyData eventEnemyData { get; private set; }
     public static EventBossEnemyData eventBossEnemyData { get; private set; }
-    private void Awake ()
+    private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad (this);
+            DontDestroyOnLoad(this);
         }
         else
         {
-            Destroy (this);
+            Destroy(this);
             return;
         }
     }
 
-    private void InitializeGameDataManager ()
+    private void InitializeGameDataManager()
     {
-        eventMainData = LoadData<EventMainData> ("EventMain");
-        eventSerifData = LoadData<EventSerifData> ("EventSerif");
-        eventEnemyData = LoadData<EventEnemyData> ("EventEnemy");
-        eventBossEnemyData = LoadData<EventBossEnemyData> ("EventBossEnemy");
+        eventMainData = LoadData<EventMainData>("EventMain");
+        eventSerifData = LoadData<EventSerifData>("EventSerif");
+        eventEnemyData = LoadData<EventEnemyData>("EventEnemy");
+        eventBossEnemyData = LoadData<EventBossEnemyData>("EventBossEnemy");
     }
 
-    private static T LoadData<T> (string fileName)
+    private static T LoadData<T>(string fileName)
     {
-        return JsonUtility.FromJson<T> (Resources.Load<TextAsset> (ResourceConst.JSON_PATH + fileName).ToString ());
+        return JsonUtility.FromJson<T>(Resources.Load<TextAsset>(ResourceConst.JSON_PATH + fileName).ToString());
     }
 
-    private void Start ()
+    private void Start()
     {
-        InitializeGameDataManager ();
+        InitializeGameDataManager();
     }
 }

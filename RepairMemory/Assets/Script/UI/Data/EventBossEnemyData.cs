@@ -1,12 +1,14 @@
 using System;
 using System.Collections.Generic;
 
-[Serializable] public class EventBossEnemyData
+[Serializable]
+public class EventBossEnemyData
 {
-    public List<EventBossEnemyModel> list = new List<EventBossEnemyModel> ();
+    public List<EventBossEnemyModel> list = new List<EventBossEnemyModel>();
 }
 
-[Serializable] public class EventBossEnemyModel
+[Serializable]
+public class EventBossEnemyModel
 {
     public int id;
     public string prefabName;

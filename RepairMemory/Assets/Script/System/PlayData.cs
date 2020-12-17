@@ -6,8 +6,8 @@ public class PlayData : MonoBehaviour
 {
     public static PlayData Instance { get; private set; }
 
-    public Dictionary<int, bool> eventFlg = new Dictionary<int, bool> ();
-    void Awake ()
+    public Dictionary<int, bool> eventFlg = new Dictionary<int, bool>();
+    void Awake()
     {
         if (Instance == null)
         {
@@ -15,20 +15,20 @@ public class PlayData : MonoBehaviour
         }
         else
         {
-            Destroy (this);
+            Destroy(this);
             return;
         }
     }
 
-    void Start ()
+    void Start()
     {
-        InitializeEventFlg ();
+        InitializeEventFlg();
     }
-    void InitializeEventFlg ()
+    void InitializeEventFlg()
     {
         foreach (EventMainModel model in GameDataManager.eventMainData.list)
         {
-            eventFlg.Add (model.id, false);
+            eventFlg.Add(model.id, false);
         }
     }
 }

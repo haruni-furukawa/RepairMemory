@@ -29,21 +29,21 @@ public class Player : MonoBehaviour
     private AudioSource audioSource;
 
     // Start is called before the first frame update
-    void Start ()
+    void Start()
     {
-        objSkill = new Queue<GameObject> ();
-        objSkill2 = new Queue<GameObject> ();
-        audioSource = GetComponent<AudioSource> ();
-        uiManager.SetMemoryParts (0);
+        objSkill = new Queue<GameObject>();
+        objSkill2 = new Queue<GameObject>();
+        audioSource = GetComponent<AudioSource>();
+        uiManager.SetMemoryParts(0);
     }
 
     // Update is called once per frame
-    void Update ()
+    void Update()
     {
-        uiManager.SetHpBar ((float) hp / (float) hpMax);
-        uiManager.SetSpBar ((float) sp / (float) spMax);
+        uiManager.SetHpBar((float)hp / (float)hpMax);
+        uiManager.SetSpBar((float)sp / (float)spMax);
     }
-    public void IncreaseSp ()
+    public void IncreaseSp()
     {
         sp++;
         if (sp > spMax)
@@ -51,170 +51,170 @@ public class Player : MonoBehaviour
             sp = spMax;
         }
     }
-    private bool IsMoveability (Vector3 direction)
+    private bool IsMoveability(Vector3 direction)
     {
-        return !Physics.Raycast (transform.position, direction, RayLength, layermask, QueryTriggerInteraction.Ignore);
+        return !Physics.Raycast(transform.position, direction, RayLength, layermask, QueryTriggerInteraction.Ignore);
     }
-    public void runUp ()
+    public void runUp()
     {
         if (hp <= 0)
         {
             return;
         }
-        if (IsMoveability (transform.forward))
+        if (IsMoveability(transform.forward))
         {
             transform.position += transform.forward * moveSpeed * Time.deltaTime;
         }
-        animator.SetBool ("run", true);
+        animator.SetBool("run", true);
     }
-    public void runDown ()
+    public void runDown()
     {
         if (hp <= 0)
         {
             return;
         }
-        if (IsMoveability (-transform.forward))
+        if (IsMoveability(-transform.forward))
         {
             transform.position -= transform.forward * moveSpeed * Time.deltaTime;
         }
-        animator.SetBool ("run", true);
+        animator.SetBool("run", true);
     }
-    public void runRight ()
+    public void runRight()
     {
         if (hp <= 0)
         {
             return;
         }
-        if (IsMoveability (transform.right))
+        if (IsMoveability(transform.right))
         {
             transform.position += transform.right * moveSpeed * Time.deltaTime;
         }
-        animator.SetBool ("run", true);
+        animator.SetBool("run", true);
     }
-    public void runLeft ()
+    public void runLeft()
     {
         if (hp <= 0)
         {
             return;
         }
-        if (IsMoveability (-transform.right))
+        if (IsMoveability(-transform.right))
         {
             transform.position -= transform.right * moveSpeed * Time.deltaTime;
         }
-        animator.SetBool ("run", true);
+        animator.SetBool("run", true);
     }
-    public void idle ()
+    public void idle()
     {
-        animator.SetBool ("run", false);
+        animator.SetBool("run", false);
     }
 
-    public void turnRight ()
+    public void turnRight()
     {
         if (hp <= 0)
         {
             return;
         }
-        transform.rotation = Quaternion.Euler (0, rotateY, 0);
+        transform.rotation = Quaternion.Euler(0, rotateY, 0);
         rotateY += Time.deltaTime * rotateSpeed;
     }
-    public void turnLeft ()
+    public void turnLeft()
     {
         if (hp <= 0)
         {
             return;
         }
-        transform.rotation = Quaternion.Euler (0, rotateY, 0);
+        transform.rotation = Quaternion.Euler(0, rotateY, 0);
         rotateY -= Time.deltaTime * rotateSpeed;
     }
 
-    public void Attack ()
+    public void Attack()
     {
-        animator.SetBool ("attack", true);
+        animator.SetBool("attack", true);
     }
-    public void AttackStart () { }
-    public void AttackEnd ()
+    public void AttackStart() { }
+    public void AttackEnd()
     {
-        animator.SetBool ("attack", false);
-        attack.SetActive (false);
+        animator.SetBool("attack", false);
+        attack.SetActive(false);
     }
-    public void AttackImpact ()
+    public void AttackImpact()
     {
-        audioSource.PlayOneShot (soundSlash);
-        attack.SetActive (true);
+        audioSource.PlayOneShot(soundSlash);
+        attack.SetActive(true);
     }
 
-    public void Attack2 ()
+    public void Attack2()
     {
-        animator.SetBool ("attack2", true);
+        animator.SetBool("attack2", true);
     }
-    public void Attack2Start () { }
-    public void Attack2End ()
+    public void Attack2Start() { }
+    public void Attack2End()
     {
-        animator.SetBool ("attack2", false);
-        attack2.SetActive (false);
+        animator.SetBool("attack2", false);
+        attack2.SetActive(false);
     }
-    public void Attack2Impact ()
+    public void Attack2Impact()
     {
-        audioSource.PlayOneShot (soundSlash2);
-        attack2.SetActive (true);
+        audioSource.PlayOneShot(soundSlash2);
+        attack2.SetActive(true);
     }
-    public void Skill ()
+    public void Skill()
     {
         if (sp == spMax)
         {
-            var prefab = (GameObject) Resources.Load ("Prefab/SkillEffect1");
-            objSkill.Enqueue (Instantiate (prefab, gameObject.transform.position, gameObject.transform.rotation, gameObject.transform));
-            Invoke ("DestroySkill", 5);
-            animator.SetBool ("skill", true);
+            var prefab = (GameObject)Resources.Load("Prefab/SkillEffect1");
+            objSkill.Enqueue(Instantiate(prefab, gameObject.transform.position, gameObject.transform.rotation, gameObject.transform));
+            Invoke("DestroySkill", 5);
+            animator.SetBool("skill", true);
             sp = 0;
         }
     }
-    public void SkillStart () { }
-    public void SkillEnd ()
+    public void SkillStart() { }
+    public void SkillEnd()
     {
-        animator.SetBool ("skill", false);
-        skill.SetActive (false);
+        animator.SetBool("skill", false);
+        skill.SetActive(false);
     }
-    public void SkillImpact ()
+    public void SkillImpact()
     {
-        var prefab = (GameObject) Resources.Load ("Prefab/SkillEffect2");
-        objSkill2.Enqueue (Instantiate (prefab, gameObject.transform.position, gameObject.transform.rotation, gameObject.transform));
-        audioSource.PlayOneShot (soundSkill);
-        Invoke ("DestroySkill2", 5);
-        skill.SetActive (true);
+        var prefab = (GameObject)Resources.Load("Prefab/SkillEffect2");
+        objSkill2.Enqueue(Instantiate(prefab, gameObject.transform.position, gameObject.transform.rotation, gameObject.transform));
+        audioSource.PlayOneShot(soundSkill);
+        Invoke("DestroySkill2", 5);
+        skill.SetActive(true);
     }
-    public void Defeat ()
+    public void Defeat()
     {
         banishCount++;
-        eventManager.DefeatEvent (banishCount, HealHp);
+        eventManager.DefeatEvent(banishCount, HealHp);
     }
 
-    public void HealHp () { hp = hpMax; }
-    public void Damage (int damage)
+    public void HealHp() { hp = hpMax; }
+    public void Damage(int damage)
     {
-        animator.SetBool ("damage", true);
+        animator.SetBool("damage", true);
         hp -= damage;
-        audioSource.PlayOneShot (soundDamage);
+        audioSource.PlayOneShot(soundDamage);
         if (hp <= 0)
         {
-            animator.SetBool ("death", true);
-            uiManager.ShowGameOver ();
+            animator.SetBool("death", true);
+            uiManager.ShowGameOver();
         }
     }
-    public void DamageEnd (int damage)
+    public void DamageEnd(int damage)
     {
-        animator.SetBool ("damage", false);
+        animator.SetBool("damage", false);
     }
-    public void OnTriggerEnter (Collider collision)
+    public void OnTriggerEnter(Collider collision)
     {
         //Debug.Log("Player.OnTriggerEnter");
     }
-    public void DestroySkill ()
+    public void DestroySkill()
     {
-        Destroy (objSkill.Dequeue ());
+        Destroy(objSkill.Dequeue());
     }
-    public void DestroySkill2 ()
+    public void DestroySkill2()
     {
-        Destroy (objSkill2.Dequeue ());
+        Destroy(objSkill2.Dequeue());
     }
 }

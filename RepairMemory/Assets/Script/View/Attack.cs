@@ -8,18 +8,18 @@ public class Attack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     public void OnTriggerEnter(Collider collider)
     {
         var enemy = collider.gameObject.GetComponent<Enemy>();
-        if(enemy != null)
+        if (enemy != null)
         {
             player.IncreaseSp();
             enemy.Damage(1);

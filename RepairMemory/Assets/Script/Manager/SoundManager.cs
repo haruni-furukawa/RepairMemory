@@ -4,54 +4,54 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    public List<AudioSource> bgmList = new List<AudioSource> ();
+    public List<AudioSource> bgmList = new List<AudioSource>();
     public static SoundManager Instance { get; private set; }
-    private void Awake ()
+    private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad (this);
+            DontDestroyOnLoad(this);
         }
         else
         {
-            Destroy (this);
+            Destroy(this);
             return;
         }
     }
 
-    public void StopAllBgm ()
+    public void StopAllBgm()
     {
         foreach (AudioSource audioSource in bgmList)
         {
-            audioSource.Stop ();
+            audioSource.Stop();
         }
     }
 
     // TODO フェード
-    public void PlayNormalBattleBgm ()
+    public void PlayNormalBattleBgm()
     {
         foreach (AudioSource audioSource in bgmList)
         {
-            audioSource.Stop ();
+            audioSource.Stop();
         }
-        bgmList[0].Play ();
+        bgmList[0].Play();
     }
 
-    public void PlayPinchBattleBgm ()
+    public void PlayPinchBattleBgm()
     {
         foreach (AudioSource audioSource in bgmList)
         {
-            audioSource.Stop ();
+            audioSource.Stop();
         }
-        bgmList[1].Play ();
+        bgmList[1].Play();
     }
-    public void PlayBossBattleBgm ()
+    public void PlayBossBattleBgm()
     {
         foreach (AudioSource audioSource in bgmList)
         {
-            audioSource.Stop ();
+            audioSource.Stop();
         }
-        bgmList[2].Play ();
+        bgmList[2].Play();
     }
 }

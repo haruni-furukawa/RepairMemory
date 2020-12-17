@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public List<GameObject> memoryParts = new List<GameObject> ();
+    public List<GameObject> memoryParts = new List<GameObject>();
     public GameObject bossHpBarPos;
     public GameObject bossHpBarPrefab;
     public Image hpBar;
@@ -23,44 +23,44 @@ public class UIManager : MonoBehaviour
     private BossHpBar bossHpBar;
     private AudioSource audioSource;
     public AudioClip soundGet;
-    public void ShowClear ()
+    public void ShowClear()
     {
-        clearAnimation.Play ();
+        clearAnimation.Play();
         // inGameManager.GameEndTimerStart("Clear");    //一定時間後にクリア画面に飛ばす
     }
 
-    public void ShowGameOver ()
+    public void ShowGameOver()
     {
-        gameOverAnimation.Play ();
+        gameOverAnimation.Play();
         // inGameManager.GameEndTimerStart("Credit");    //一定時間後にクレジット画面に飛ばす
     }
 
-    public void ShowBossHpBar ()
+    public void ShowBossHpBar()
     {
-        GameObject bossHpBarObj = Instantiate (bossHpBarPrefab, bossHpBarPos.transform);
-        bossHpBar = bossHpBarObj.GetComponent<BossHpBar> ();
+        GameObject bossHpBarObj = Instantiate(bossHpBarPrefab, bossHpBarPos.transform);
+        bossHpBar = bossHpBarObj.GetComponent<BossHpBar>();
     }
 
-    public void SetBossHpBar (float hp)
+    public void SetBossHpBar(float hp)
     {
         if (bossHpBar != null)
         {
-            hp = CheckSliderValue (hp);
-            bossHpBar.SetHpBar (hp);
+            hp = CheckSliderValue(hp);
+            bossHpBar.SetHpBar(hp);
         }
     }
 
-    public void HideBossHpBar ()
+    public void HideBossHpBar()
     {
-        Destroy (bossHpBar.gameObject);
+        Destroy(bossHpBar.gameObject);
         bossHpBar = null;
     }
 
-    public void ShowMessageWindow (string text, string standImageFileName, string voiceFileName, bool clearFlag = false)
+    public void ShowMessageWindow(string text, string standImageFileName, string voiceFileName, bool clearFlag = false)
     {
-        messageWindow.ShowMessageWindow (text, standImageFileName, voiceFileName, clearFlag);
+        messageWindow.ShowMessageWindow(text, standImageFileName, voiceFileName, clearFlag);
     }
-    private void Awake ()
+    private void Awake()
     {
         if (Instance == null)
         {
@@ -68,42 +68,42 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-            Destroy (this);
+            Destroy(this);
             return;
         }
     }
 
-    private void Start () { audioSource = GetComponent<AudioSource> (); }
+    private void Start() { audioSource = GetComponent<AudioSource>(); }
 
-    public void SetMemoryParts (int index)
+    public void SetMemoryParts(int index)
     {
-        if (0 < index && index < memoryParts.Count) { audioSource.PlayOneShot (soundGet); }
+        if (0 < index && index < memoryParts.Count) { audioSource.PlayOneShot(soundGet); }
         if (0 <= index && index < memoryParts.Count)
         {
-            foreach (GameObject parts in memoryParts) parts.SetActive (false);
-            memoryParts[index].SetActive (true);
+            foreach (GameObject parts in memoryParts) parts.SetActive(false);
+            memoryParts[index].SetActive(true);
         }
     }
 
-    public void SetHpBar (float hp)
+    public void SetHpBar(float hp)
     {
-        hp = CheckSliderValue (hp);
+        hp = CheckSliderValue(hp);
         if (hpBar != null)
         {
             hpBar.fillAmount = hp;
         }
     }
 
-    public void SetSpBar (float sp)
+    public void SetSpBar(float sp)
     {
-        sp = CheckSliderValue (sp);
+        sp = CheckSliderValue(sp);
         if (spBar != null)
         {
             spBar.fillAmount = sp;
         }
     }
 
-    private float CheckSliderValue (float value)
+    private float CheckSliderValue(float value)
     {
         if (value > 1.0f)
         {
@@ -116,11 +116,11 @@ public class UIManager : MonoBehaviour
         return value;
     }
 
-    public void SetBanishCount (int count)
+    public void SetBanishCount(int count)
     {
         if (banishCount != null)
         {
-            banishCount.text = count.ToString ();
+            banishCount.text = count.ToString();
         }
     }
 }

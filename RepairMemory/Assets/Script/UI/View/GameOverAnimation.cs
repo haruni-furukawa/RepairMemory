@@ -4,13 +4,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class GameOverAnimation : MonoBehaviour
 {
-    public void Play ()
+    public void Play()
     {
-        GetComponent<Animator> ().SetTrigger ("Play");
+        GetComponent<Animator>().SetTrigger("Play");
     }
-    public void OnEndAnimation ()
+    public void OnEndAnimation()
     {
-        SoundManager.Instance.StopAllBgm ();
-        SceneManager.LoadScene ("Credit");
+        SoundManager.Instance.StopAllBgm();
+        SceneManager.LoadScene("Credit");
     }
 }

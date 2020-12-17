@@ -15,33 +15,33 @@ public class Partner : MonoBehaviour
     protected Rigidbody rb;
     protected MoveMode currentMoveMode;
 
-    void Start ()
+    void Start()
     {
-        rb = this.GetComponent<Rigidbody> ();
+        rb = this.GetComponent<Rigidbody>();
         currentMoveMode = MoveMode.Follow;
     }
 
-    void Update () { DoAutoMovement (); }
-    public void Follow ()
+    void Update() { DoAutoMovement(); }
+    public void Follow()
     {
-        Quaternion move_rotation = Quaternion.LookRotation (followTarget.transform.position - transform.position, Vector3.up);
-        transform.rotation = Quaternion.Lerp (transform.rotation, move_rotation, 0.1f);
+        Quaternion move_rotation = Quaternion.LookRotation(followTarget.transform.position - transform.position, Vector3.up);
+        transform.rotation = Quaternion.Lerp(transform.rotation, move_rotation, 0.1f);
         transform.position += transform.forward * speed * Time.deltaTime;
-        animator.SetBool ("run", true);
+        animator.SetBool("run", true);
     }
-    public void Idle () { animator.SetBool ("run", false); }
-    protected void DoAutoMovement ()
+    public void Idle() { animator.SetBool("run", false); }
+    protected void DoAutoMovement()
     {
         switch (currentMoveMode)
         {
             case MoveMode.Idle:
-                Idle ();
+                Idle();
                 break;
             case MoveMode.Follow:
-                if (followTarget != null) { Follow (); }
+                if (followTarget != null) { Follow(); }
                 break;
         }
     }
-    public void OnEnterFollowTarget () { if (currentMoveMode == MoveMode.Follow) { currentMoveMode = MoveMode.Idle; } }
-    public void OnExitFollowTarget () { if (currentMoveMode == MoveMode.Idle) { currentMoveMode = MoveMode.Follow; } }
+    public void OnEnterFollowTarget() { if (currentMoveMode == MoveMode.Follow) { currentMoveMode = MoveMode.Idle; } }
+    public void OnExitFollowTarget() { if (currentMoveMode == MoveMode.Idle) { currentMoveMode = MoveMode.Follow; } }
 }

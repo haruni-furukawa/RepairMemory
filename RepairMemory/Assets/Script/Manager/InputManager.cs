@@ -52,10 +52,10 @@ public class InputManager : MonoBehaviour
         {
             player.Skill();
         }
-        if (!bRun) 
+        if (!bRun)
         {
             player.idle();
-        
+
         }
 
     }
