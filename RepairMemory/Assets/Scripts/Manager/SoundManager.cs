@@ -2,23 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoundManager : MonoBehaviour
+public class SoundManager : MonoBase<SoundManager>
 {
     public List<AudioSource> bgmList = new List<AudioSource>();
-    public static SoundManager Instance { get; private set; }
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(this);
-        }
-        else
-        {
-            Destroy(this);
-            return;
-        }
-    }
+    override protected void Awake() { if (CheckInstance()) { DontDestroyOnLoad(this); } }
 
     public void StopAllBgm()
     {

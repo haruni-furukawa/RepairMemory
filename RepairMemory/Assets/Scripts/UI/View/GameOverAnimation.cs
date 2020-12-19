@@ -10,7 +10,7 @@ public class GameOverAnimation : MonoBehaviour
     }
     public void OnEndAnimation()
     {
-        SoundManager.Instance.StopAllBgm();
+        SoundManager.Instance?.StopAllBgm();
         SceneManager.LoadScene("Credit");
     }
 }

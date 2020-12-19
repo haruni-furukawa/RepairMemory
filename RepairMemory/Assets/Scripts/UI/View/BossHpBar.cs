@@ -12,7 +12,7 @@ public class BossHpBar : MonoBehaviour
     void Start()
     {
         hpBar.fillAmount = 0.0f;
-        SoundManager.Instance.StopAllBgm();
+        SoundManager.Instance?.StopAllBgm();
     }
 
     void Update()
@@ -29,7 +29,7 @@ public class BossHpBar : MonoBehaviour
                 hpBar.fillAmount = 1.0f;
                 timeCount = 0.0f;
                 InitializeHp = true;
-                SoundManager.Instance.PlayBossBattleBgm();
+                SoundManager.Instance?.PlayBossBattleBgm();
             }
         }
     }
