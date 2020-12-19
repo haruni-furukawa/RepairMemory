@@ -162,7 +162,7 @@ public class Player : MonoBehaviour
     {
         if (sp == spMax)
         {
-            var prefab = (GameObject)Resources.Load("Prefab/SkillEffect1");
+            var prefab = (GameObject)Resources.Load(ResourceConst.EFFECTS_PREFABS_PATH + "SkillEffect1");
             objSkill.Enqueue(Instantiate(prefab, gameObject.transform.position, gameObject.transform.rotation, gameObject.transform));
             Invoke("DestroySkill", 5);
             animator.SetBool("skill", true);
@@ -177,7 +177,7 @@ public class Player : MonoBehaviour
     }
     public void SkillImpact()
     {
-        var prefab = (GameObject)Resources.Load("Prefab/SkillEffect2");
+        var prefab = (GameObject)Resources.Load(ResourceConst.EFFECTS_PREFABS_PATH + "SkillEffect2");
         objSkill2.Enqueue(Instantiate(prefab, gameObject.transform.position, gameObject.transform.rotation, gameObject.transform));
         audioSource.PlayOneShot(soundSkill);
         Invoke("DestroySkill2", 5);

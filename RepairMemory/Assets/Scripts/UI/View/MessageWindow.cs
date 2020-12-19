@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class MessageWindow : MonoBehaviour
 {
     public enum MessageStateType
     {
         Stay = 100,
-        Initialze = 0,
+        Initialize = 0,
         OpenAnimation = 10,
         PlayVoice = 20,
         SerifAnimation = 30,
@@ -35,12 +36,12 @@ public class MessageWindow : MonoBehaviour
         _serifText = text;
         stand.sprite = null;
         _clearFlag = clearFlag;
-        if (standImageFileName.Length > 0) stand.sprite = Resources.Load<Sprite>("Image/Character/Stand/" + standImageFileName);
+        if (standImageFileName.Length > 0) stand.sprite = Resources.Load<Sprite>(ResourceConst.STAND_TEXTURES_PATH + standImageFileName);
         _voiceFilePath = voiceFileName.Length > 0 ? "Sound/Voice/" + voiceFileName : "";
-        _stateType = MessageStateType.Initialze;
+        _stateType = MessageStateType.Initialize;
     }
 
-    void InitialzeVariable()
+    void InitializeVariable()
     {
         currentSentence = string.Empty;
         _stateType = MessageStateType.OpenAnimation;
@@ -50,8 +51,8 @@ public class MessageWindow : MonoBehaviour
     {
         switch (_stateType)
         {
-            case MessageStateType.Initialze:
-                InitialzeVariable();
+            case MessageStateType.Initialize:
+                InitializeVariable();
                 break;
             case MessageStateType.OpenAnimation:
                 PlayOpen();

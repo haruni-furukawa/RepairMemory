@@ -39,7 +39,7 @@ public class Enemy : MonoBehaviour
         nextTime -= Time.deltaTime;
         if (nextTime <= 0)
         {
-            var prefab = (GameObject)Resources.Load("Prefab/" + GetBulletName());
+            var prefab = (GameObject)Resources.Load(ResourceConst.EFFECTS_PREFABS_PATH + GetBulletName());
             var objEnemy = Instantiate(prefab, gameObject.transform.position, gameObject.transform.rotation);
             SetNextTime();
         }
@@ -64,7 +64,7 @@ public class Enemy : MonoBehaviour
         }
         nextTime = Random.Range(2.0f, 6.0f);
         hp -= damage;
-        var prefab = (GameObject)Resources.Load("Prefab/EnemyHitEffect");
+        var prefab = (GameObject)Resources.Load(ResourceConst.EFFECTS_PREFABS_PATH + "EnemyHitEffect");
         objHit.Enqueue(Instantiate(prefab, gameObject.transform.position, gameObject.transform.rotation, gameObject.transform));
         Invoke("DestroyHit", 2);
 

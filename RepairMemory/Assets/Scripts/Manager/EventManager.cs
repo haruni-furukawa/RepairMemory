@@ -7,7 +7,7 @@ public class EventManager : MonoBehaviour
 {
     private const float EVENT_DISTANCE = 12.5f;
     public static EventManager Instance { get; private set; }
-    public IngameManager ingameManager;
+    public InGameManager inGameManager;
     public UIManager uiManager;
     public PlayData playData;
     public GameObject eventWall1;
@@ -76,7 +76,7 @@ public class EventManager : MonoBehaviour
         {
             if (playData.eventFlg[model.id] == false)
             {
-                Vector2 playerPos = new Vector2(ingameManager.player.transform.position.x, ingameManager.player.transform.position.z);
+                Vector2 playerPos = new Vector2(inGameManager.player.transform.position.x, inGameManager.player.transform.position.z);
                 Vector2 eventPos = new Vector2(model.GetPosition().x, model.GetPosition().z);
 
                 if (Vector2.Distance(playerPos, eventPos) < EVENT_DISTANCE)
@@ -122,7 +122,7 @@ public class EventManager : MonoBehaviour
             {
                 queueFunc.Add(() =>
                {
-                   ingameManager.CreateEnemies(model.prefabName, model.count, model.x, model.z);
+                   inGameManager.CreateEnemies(model.prefabName, model.count, model.x, model.z);
                });
                 break;
             }
@@ -137,7 +137,7 @@ public class EventManager : MonoBehaviour
             {
                 queueFunc.Add(() =>
                {
-                   ingameManager.CreateBoss(model.prefabName, model.count, model.x, model.z);
+                   inGameManager.CreateBoss(model.prefabName, model.count, model.x, model.z);
                });
                 break;
             }

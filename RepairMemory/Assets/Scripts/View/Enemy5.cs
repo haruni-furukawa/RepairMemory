@@ -27,7 +27,7 @@ public class Enemy5 : Enemy
             return;
         }
         hp -= damage;
-        var prefab = (GameObject)Resources.Load("Prefab/EnemyHitEffect");
+        var prefab = (GameObject)Resources.Load(ResourceConst.EFFECTS_PREFABS_PATH + "EnemyHitEffect");
         objHit.Enqueue(Instantiate(prefab, gameObject.transform.position, gameObject.transform.rotation, gameObject.transform));
         Invoke("DestroyHit", 2);
         var rb = gameObject.GetComponent<Rigidbody>();

@@ -15,7 +15,7 @@ public class UIManager : MonoBehaviour
     public MessageWindow messageWindow;
     public static UIManager Instance { get; private set; }
 
-    public IngameManager inGameManager;
+    public InGameManager inGameManager;
 
     public ClearAnimation clearAnimation;
     public GameOverAnimation gameOverAnimation;
