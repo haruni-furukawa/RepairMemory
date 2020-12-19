@@ -5,11 +5,10 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
-
+    [SerializeField, Tooltip("HPバー")] protected EnemyHPBar _hpBar = default;
     protected Player player;
     protected int hpMax = 3;
     protected int hp = 3;
-    public Image imgHp;
     protected float nextTime = 0.0f;
     protected float totalTime = 0.0f;
     public Queue<GameObject> objHit = new Queue<GameObject>();
@@ -34,6 +33,7 @@ public class Enemy : MonoBehaviour
     {
         if (hp <= 0)
         {
+            _hpBar?.SetActive(false);
             return;
         }
         nextTime -= Time.deltaTime;
@@ -79,7 +79,7 @@ public class Enemy : MonoBehaviour
         }
         rb.AddForce(forward);
         float perHp = (float)hp / (float)hpMax;
-        imgHp.fillAmount = perHp;
+        _hpBar?.SetHPRate(perHp);
     }
     public void DestroyHit()
     {
