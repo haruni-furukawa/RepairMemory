@@ -18,7 +18,8 @@ public class MessageWindow : MonoBehaviour
     public Image stand;
     public Text message;
     public AudioSource _audioSource;
-    public Animator _animator;
+    public CanvasGroup _canvasGroup;
+    public RectTransform _rectTransform;
     private MessageStateType _stateType = MessageStateType.Stay;
 
     private string currentSentence = string.Empty; // 現在の文字列
@@ -43,6 +44,9 @@ public class MessageWindow : MonoBehaviour
 
     void InitializeVariable()
     {
+        Vector2 initializePosition = Vector2.zero;
+        initializePosition.y = -200.0f;
+        _rectTransform.anchoredPosition = initializePosition;
         currentSentence = string.Empty;
         _stateType = MessageStateType.OpenAnimation;
     }
@@ -74,7 +78,9 @@ public class MessageWindow : MonoBehaviour
 
     void PlayOpen()
     {
-        _animator.SetBool("IsOpen", true);
+        Sequence seq = DOTween.Sequence();
+        seq.Join(_canvasGroup.DOFade(1.0f, 0.5f));
+        seq.Join(_rectTransform.DOAnchorPosY(0.0f, 0.5f));
         _stateType = MessageStateType.PlayVoice;
     }
 
@@ -118,22 +124,17 @@ public class MessageWindow : MonoBehaviour
 
     void PlayClose()
     {
-        _animator.SetBool("IsOpen", false);
-        _animator.SetBool("IsClose", true);
+        Sequence seq = DOTween.Sequence();
+        seq.Join(_canvasGroup.DOFade(0.0f, 0.5f));
+        seq.Join(_rectTransform.DOAnchorPosY(-200.0f, 0.5f));
+        seq.OnComplete(() => OnEndClose());
     }
 
     public void OnEndClose()
     {
-        _animator.SetBool("IsClose", false);
         _stateType = MessageStateType.Stay;
-        if (_clearFlag)
-        {
-            Clear();
-        }
+        if (_clearFlag) { Clear(); }
     }
 
-    private void Clear()
-    {
-        UIManager.Instance.ShowClear();
-    }
+    private void Clear() { UIManager.Instance.ShowClear(); }
 }

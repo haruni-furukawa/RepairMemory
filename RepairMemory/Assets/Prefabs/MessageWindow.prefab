@@ -84,7 +84,6 @@ GameObject:
   - component: {fileID: 7588524516967703439}
   - component: {fileID: 7588524516967703436}
   - component: {fileID: 1209943294224446368}
-  - component: {fileID: 5376009760360297885}
   - component: {fileID: 1201606715002072108}
   m_Layer: 5
   m_Name: MessageWindow
@@ -129,7 +128,9 @@ MonoBehaviour:
   stand: {fileID: 7588524516894526440}
   message: {fileID: 7588524517756787925}
   _audioSource: {fileID: 1209943294224446368}
-  _animator: {fileID: 5376009760360297885}
+  _animator: {fileID: 0}
+  _canvasGroup: {fileID: 1201606715002072108}
+  _rectTransform: {fileID: 7588524516967703439}
 --- !u!82 &1209943294224446368
 AudioSource:
   m_ObjectHideFlags: 0
@@ -226,25 +227,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!95 &5376009760360297885
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7588524516967703438}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9c5f457e4eb5031459bc2029071b6595, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!225 &1201606715002072108
 CanvasGroup:
   m_ObjectHideFlags: 0
