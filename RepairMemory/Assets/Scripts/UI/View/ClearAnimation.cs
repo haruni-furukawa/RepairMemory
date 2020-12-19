@@ -9,7 +9,6 @@ public class ClearAnimation : MonoBehaviour
     private bool _isPlaying = false;
     private bool _isProcessed = false;
 
-    void Start() { Play(); }
     public void Play()
     {
         if (_isPlaying || _isProcessed) { return; }
