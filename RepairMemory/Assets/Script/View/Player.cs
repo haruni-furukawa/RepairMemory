@@ -207,7 +207,7 @@ public class Player : MonoBehaviour
     }
     public void OnTriggerEnter(Collider collision)
     {
-        //Debug.Log("Player.OnTriggerEnter");
+
     }
     public void DestroySkill()
     {

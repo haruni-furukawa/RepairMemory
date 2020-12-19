@@ -24,7 +24,6 @@ public class CreditManager : MonoBehaviour
 
     void ChangeScene()
     {
-        Debug.Log("test");
         _transitionFlag = true;
         SceneManager.LoadScene("Title");
     }

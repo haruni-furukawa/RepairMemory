@@ -18,7 +18,6 @@ public class Attack2 : MonoBehaviour
     }
     public void OnTriggerEnter(Collider collider)
     {
-        Debug.Log("OnTriggerEnter");
         var enemy = collider.gameObject.GetComponent<Enemy>();
         if (enemy != null)
         {

@@ -24,7 +24,6 @@ public class StoryManager : MonoBehaviour
 
     void ChangeScene()
     {
-        Debug.Log("test");
         _transitionFlag = true;
         SceneManager.LoadScene("HowToPlay");
     }

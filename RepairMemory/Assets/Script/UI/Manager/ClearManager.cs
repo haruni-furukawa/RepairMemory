@@ -24,7 +24,6 @@ public class ClearManager : MonoBehaviour
 
     void ChangeScene()
     {
-        Debug.Log("test");
         _transitionFlag = true;
         SceneManager.LoadScene("Credit");
     }
