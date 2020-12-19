@@ -1391,7 +1391,7 @@ GameObject:
   - component: {fileID: 873203974}
   - component: {fileID: 873203975}
   m_Layer: 0
-  m_Name: IngameManager
+  m_Name: InGameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3878,7 +3878,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 363eb6d00e434cf4b8dca5f4ab5b959a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingameManager: {fileID: 873203975}
+  inGameManager: {fileID: 873203975}
   uiManager: {fileID: 1481968654}
   playData: {fileID: 1605302423}
   eventWall1: {fileID: 1769101058}
