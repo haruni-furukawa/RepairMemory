@@ -279,6 +279,14 @@ MonoBehaviour:
   attack2: {fileID: 563347064964902235}
   skill: {fileID: 627835867499036236}
   uiManager: {fileID: 0}
+  eventManager: {fileID: 0}
+  layermask:
+    serializedVersion: 2
+    m_Bits: 0
+  soundSkill: {fileID: 0}
+  soundSlash: {fileID: 0}
+  soundSlash2: {fileID: 0}
+  soundDamage: {fileID: 0}
 --- !u!95 &5388626776487200304
 Animator:
   serializedVersion: 3
@@ -395,6 +403,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2161795536235233836, guid: 04ca7eecbbc164c75af186b6222a1708,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9db792ee23ab95545b8893d42fe8995c, type: 2}
+    - target: {fileID: 3812979728699729449, guid: 04ca7eecbbc164c75af186b6222a1708,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b965f5ecc3ae2b4bb616e7b80e87063, type: 2}
+    - target: {fileID: 1912256747609610025, guid: 04ca7eecbbc164c75af186b6222a1708,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f4afac441b2541d4aa0769a61e23cb60, type: 2}
     m_RemovedComponents:
     - {fileID: -6057140222963153312, guid: 04ca7eecbbc164c75af186b6222a1708, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 04ca7eecbbc164c75af186b6222a1708, type: 3}
